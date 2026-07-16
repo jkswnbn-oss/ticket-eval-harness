@@ -1,4 +1,4 @@
-# support-eval-harness
+# ticket-eval-harness
 
 Eval harness for grading LLM performance on enterprise support ticket triage,
 severity classification, and first-response drafting.
