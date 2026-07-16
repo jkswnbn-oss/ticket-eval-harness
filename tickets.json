@@ -1,0 +1,1502 @@
+[
+  {
+    "id": "TKT-0001",
+    "created_at": "2026-06-02T14:12:00Z",
+    "customer_tier": "platinum",
+    "product_area": "search",
+    "channel": "portal",
+    "subject": "Search returning zero results org-wide since this morning",
+    "body": "As of about 8am ET every search query in our workspace returns 'No results found', even for terms we know exist (we can see the docs in the content browser). This is blocking our entire support team from finding KB articles during live customer calls. Nothing changed on our end.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0002",
+    "created_at": "2026-06-03T09:41:00Z",
+    "customer_tier": "gold",
+    "product_area": "search",
+    "channel": "email",
+    "subject": "Search index hasn't picked up anything published since Tuesday",
+    "body": "We publish new articles daily and our internal team relies on search to find them same-day. Nothing published since Tuesday afternoon is showing up in search results, even 48 hours later. Older content still searches fine. If this isn't fixed by end of week our renewal conversation next month is going to be a lot harder than it needs to be.",
+    "reporter_profile": "escalation-threat"
+  },
+  {
+    "id": "TKT-0003",
+    "created_at": "2026-06-05T11:05:00Z",
+    "customer_tier": "platinum",
+    "product_area": "search",
+    "channel": "chat",
+    "subject": "I think our search results are being cached too aggressively",
+    "body": "Users are telling me they search for a document and get a completely unrelated result from a different team's workspace. I've checked with our admin and permissions look fine on our side, so it must be a caching bug returning stale results from another tenant's cache. Can you clear the cache for us?",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0004",
+    "created_at": "2026-06-07T16:30:00Z",
+    "customer_tier": "gold",
+    "product_area": "search",
+    "channel": "portal",
+    "subject": "Search API throwing 500s + a couple other small things",
+    "body": "Since last night's release our integration calling the search API gets 500 Internal Server Error on almost every request \u2014 this is breaking the search widget on our customer-facing help center. Separately, two minor things: the search settings page takes a while to load, and the 'recent searches' list in the admin panel shows duplicates. The 500s are the urgent part obviously.",
+    "reporter_profile": "multi-issue"
+  },
+  {
+    "id": "TKT-0005",
+    "created_at": "2026-06-08T10:15:00Z",
+    "customer_tier": "standard",
+    "product_area": "search",
+    "channel": "email",
+    "subject": "Search results look wrong since the algorithm update",
+    "body": "I noticed an email a few weeks ago about a 'relevancy improvement' but for us it's made things worse. Searching for our most common product name now returns three-year-old archived tickets before the current documentation. Our support agents are wasting time scrolling past irrelevant results.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0006",
+    "created_at": "2026-06-09T13:22:00Z",
+    "customer_tier": "gold",
+    "product_area": "search",
+    "channel": "chat",
+    "subject": "Autocomplete broken for our French workspace",
+    "body": "Typeahead suggestions in search work fine for our English content but return nothing for our French-language workspace, even for words that clearly exist in published docs. English autocomplete is unaffected.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0007",
+    "created_at": "2026-06-10T08:50:00Z",
+    "customer_tier": "standard",
+    "product_area": "search",
+    "channel": "portal",
+    "subject": "filters not working right",
+    "body": "ok so I select the 'status: open' filter on search results and it just... doesn't filter anything? shows closed tickets too. tried it in two different browsers same thing. kind of annoying when youre trying to find something specific",
+    "reporter_profile": "vague-frustrated"
+  },
+  {
+    "id": "TKT-0008",
+    "created_at": "2026-06-11T15:05:00Z",
+    "customer_tier": "gold",
+    "product_area": "search",
+    "channel": "email",
+    "subject": "New workspace content missing from search after reindex",
+    "body": "We migrated a workspace last week and support said a reindex would run automatically. It's been six days and content from that workspace still doesn't appear in search, though it displays fine when browsing directly. Our admin thinks it's a permissions issue since the migrated workspace has slightly different sharing settings, but I'm not totally sure that's it.",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0009",
+    "created_at": "2026-06-12T09:30:00Z",
+    "customer_tier": "platinum",
+    "product_area": "search",
+    "channel": "chat",
+    "subject": "Boolean search operators stopped working for our analysts",
+    "body": "Our research team relies heavily on quoted phrases and AND/OR/NOT operators to narrow down large result sets. As of this week those operators are being ignored entirely \u2014 a search for \"exact phrase\" AND tag:urgent just returns a plain keyword match on all the words. We just onboarded a couple new analysts this week too, so it might just be them not using the syntax right, but it's happening on my account as well.",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0010",
+    "created_at": "2026-06-13T12:00:00Z",
+    "customer_tier": "standard",
+    "product_area": "search",
+    "channel": "portal",
+    "subject": "search is really slow now",
+    "body": "been using this for months and search used to be instant, now every search takes like 8-10 seconds. also our export button on the reports page looks like it might be broken, haven't tried it much. but yeah search is the main thing, it's really frustrating our team.",
+    "reporter_profile": "multi-issue"
+  },
+  {
+    "id": "TKT-0011",
+    "created_at": "2026-06-14T10:10:00Z",
+    "customer_tier": "standard",
+    "product_area": "search",
+    "channel": "email",
+    "subject": "Special characters break search",
+    "body": "Searching for anything with an ampersand in it (like 'R&D') returns zero results, even though the term is a plain keyword match otherwise. Not urgent, just annoying since we reference that term a lot.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0012",
+    "created_at": "2026-06-15T14:45:00Z",
+    "customer_tier": "gold",
+    "product_area": "search",
+    "channel": "portal",
+    "subject": "Sort by date is sometimes wrong",
+    "body": "When I sort search results by 'newest first' it's usually right but every so often an older doc shows up above a newer one. Doesn't happen every time so it's hard to pin down a pattern. Low priority, just flagging.",
+    "reporter_profile": "vague-frustrated"
+  },
+  {
+    "id": "TKT-0013",
+    "created_at": "2026-06-16T09:00:00Z",
+    "customer_tier": "standard",
+    "product_area": "search",
+    "channel": "chat",
+    "subject": "Result snippets show old text",
+    "body": "I updated a doc's intro paragraph last week but the search result preview snippet still shows the old wording, even though clicking through shows the updated page. Just cosmetic but confusing for our readers.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0014",
+    "created_at": "2026-06-17T11:20:00Z",
+    "customer_tier": "standard",
+    "product_area": "search",
+    "channel": "email",
+    "subject": "Can we get 'PO' to also match 'purchase order'?",
+    "body": "Our team searches 'PO' constantly but it never surfaces docs that only say 'purchase order' spelled out, and vice versa. Would be great if there were a way to set up synonyms for common abbreviations. Not a bug, just a workflow annoyance.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0015",
+    "created_at": "2026-06-18T13:33:00Z",
+    "customer_tier": "standard",
+    "product_area": "search",
+    "channel": "portal",
+    "subject": "search bar stays filled in after I navigate away",
+    "body": "minor thing but when I search for something and then click into a different section of the app, the search bar still shows my old query when I come back to search. have to manually clear it every time. not a big deal just noticed it.",
+    "reporter_profile": "vague-frustrated"
+  },
+  {
+    "id": "TKT-0016",
+    "created_at": "2026-06-19T08:12:00Z",
+    "customer_tier": "standard",
+    "product_area": "search",
+    "channel": "chat",
+    "subject": "my recent searches aren't saving",
+    "body": "the recent searches dropdown used to show my last few queries, now its empty every time I open a new tab. kind of useful feature, would like it back but not urgent",
+    "reporter_profile": "vague-frustrated"
+  },
+  {
+    "id": "TKT-0017",
+    "created_at": "2026-06-20T15:50:00Z",
+    "customer_tier": "gold",
+    "product_area": "search",
+    "channel": "email",
+    "subject": "Seeing duplicate results for the same document",
+    "body": "Occasionally a search returns the exact same document twice in the results list, back to back. Doesn't affect our ability to find things, just looks a bit sloppy in front of customers when we're screen-sharing.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0018",
+    "created_at": "2026-06-21T10:05:00Z",
+    "customer_tier": "standard",
+    "product_area": "search",
+    "channel": "portal",
+    "subject": "Wish search covered PDF attachments too",
+    "body": "Would be great if search could look inside PDF attachments on tickets, not just the ticket text itself. Right now we have to open each PDF manually to check contents. Feature request, not urgent.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0019",
+    "created_at": "2026-06-22T14:40:00Z",
+    "customer_tier": "platinum",
+    "product_area": "search",
+    "channel": "chat",
+    "subject": "search is broken and it's costing us customers, need this fixed NOW",
+    "body": "our agents cant find ANYTHING today, every search comes back empty and we have a queue of 40 tickets backing up. this is exactly the kind of thing that makes leadership question renewing with you. i need someone on this in the next hour or i'm escalating to our exec sponsor",
+    "reporter_profile": "escalation-threat"
+  },
+  {
+    "id": "TKT-0020",
+    "created_at": "2026-06-23T09:15:00Z",
+    "customer_tier": "gold",
+    "product_area": "search",
+    "channel": "email",
+    "subject": "search results are case sensitive now?",
+    "body": "typing a term in lowercase used to match content regardless of capitalization. now if I type 'api' lowercase I get different results than 'API' uppercase. seems like a bug but maybe it's intentional? confusing either way.",
+    "reporter_profile": "vague-frustrated"
+  },
+  {
+    "id": "TKT-0021",
+    "created_at": "2026-06-24T16:00:00Z",
+    "customer_tier": "standard",
+    "product_area": "search",
+    "channel": "portal",
+    "subject": "can't get past page 5 of search results",
+    "body": "When I have a broad search with lots of results, clicking 'next page' stops working after page 5 \u2014 the button is there but nothing happens when I click it. I'm guessing there's just a hard cap on how many results search can return and page 5 is it, but seems like a low cap if so.",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0022",
+    "created_at": "2026-06-25T11:30:00Z",
+    "customer_tier": "gold",
+    "product_area": "search",
+    "channel": "chat",
+    "subject": "Random 502 errors on search, and also I can't find the export button",
+    "body": "Every few minutes a search will just throw a 502 error page instead of results, then works fine on retry. Also separately I remember there being a way to export search results to CSV but I can't find that button anymore \u2014 did that move?",
+    "reporter_profile": "multi-issue"
+  },
+  {
+    "id": "TKT-0023",
+    "created_at": "2026-06-26T13:10:00Z",
+    "customer_tier": "standard",
+    "product_area": "search",
+    "channel": "email",
+    "subject": "Weird search behavior, might just be me",
+    "body": "Not totally sure how to describe this but sometimes when I search something it works fine, and then five minutes later the exact same search gives fewer results. Might be a caching thing? Might be nothing. Wanted to flag it in case it's a bigger pattern for you.",
+    "reporter_profile": "vague-frustrated"
+  },
+  {
+    "id": "TKT-0024",
+    "created_at": "2026-06-27T09:45:00Z",
+    "customer_tier": "platinum",
+    "product_area": "search",
+    "channel": "portal",
+    "subject": "Search widget on our public help center shows internal-only articles",
+    "body": "A customer emailed us a screenshot showing our internal-only 'draft' articles appearing in search results on our public-facing help center, including one with pricing notes we don't want customers to see. We initially thought this was a permissions setting we misconfigured, but we've triple-checked our visibility settings and draft articles are correctly marked internal-only.",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0025",
+    "created_at": "2026-06-28T15:22:00Z",
+    "customer_tier": "gold",
+    "product_area": "search",
+    "channel": "chat",
+    "subject": "Keyboard shortcut for search doesn't work in Firefox",
+    "body": "The '/' shortcut to jump to search works great in Chrome but does nothing in Firefox, just types a slash into whatever field is focused. Minor, we mostly use Chrome anyway.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0026",
+    "created_at": "2026-06-01T08:20:00Z",
+    "customer_tier": "platinum",
+    "product_area": "analytics",
+    "channel": "portal",
+    "subject": "Every dashboard number looks wrong as of last night",
+    "body": "All our dashboards are showing numbers roughly double what we'd expect based on raw activity we can see elsewhere in the product. This started sometime overnight. We use these numbers in a board report going out tomorrow morning, so this needs eyes on it today.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0027",
+    "created_at": "2026-06-02T07:55:00Z",
+    "customer_tier": "gold",
+    "product_area": "analytics",
+    "channel": "email",
+    "subject": "No new analytics data in 3 days, need this fixed today or I'm looping in our AE",
+    "body": "Our dashboards have been frozen on Monday's data for three days now. We report weekly numbers to our own leadership every Friday and today is Thursday, so we're already behind. If I don't hear back with a real timeline in the next few hours I'm getting our account exec involved.",
+    "reporter_profile": "escalation-threat"
+  },
+  {
+    "id": "TKT-0028",
+    "created_at": "2026-06-03T12:10:00Z",
+    "customer_tier": "platinum",
+    "product_area": "analytics",
+    "channel": "chat",
+    "subject": "Scheduled report email isn't arriving",
+    "body": "Our weekly summary report email hasn't shown up the last two Mondays. I checked spam, checked the recipient list, everything looks configured correctly on our end, so it must be an email deliverability problem on your side \u2014 can you check your outbound mail server logs?",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0029",
+    "created_at": "2026-06-04T14:33:00Z",
+    "customer_tier": "standard",
+    "product_area": "analytics",
+    "channel": "portal",
+    "subject": "Export totals don't match what the dashboard shows",
+    "body": "When I export the monthly report to CSV and sum the column myself, I get a different total than what's displayed on the dashboard summary card \u2014 off by about 8%. I've double-checked my math. Which one is right?",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0030",
+    "created_at": "2026-06-05T09:18:00Z",
+    "customer_tier": "gold",
+    "product_area": "analytics",
+    "channel": "email",
+    "subject": "Custom dashboard widgets blank for some of our team",
+    "body": "Three of our five analysts see blank widgets on the custom dashboard I built for them, while I see all the data fine on my end. We've all cleared cache and tried different browsers. Not sure what's different about their accounts.",
+    "reporter_profile": "vague-frustrated"
+  },
+  {
+    "id": "TKT-0031",
+    "created_at": "2026-06-06T16:02:00Z",
+    "customer_tier": "standard",
+    "product_area": "analytics",
+    "channel": "chat",
+    "subject": "Date range filter seems off by a day",
+    "body": "When I filter for 'June 1 to June 7' the report includes some data from May 31 and excludes some from June 7. Seems like a timezone handling issue since we're on Pacific time and your servers might be UTC.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0032",
+    "created_at": "2026-06-07T10:44:00Z",
+    "customer_tier": "platinum",
+    "product_area": "analytics",
+    "channel": "portal",
+    "subject": "Analytics API rate limits + also our onboarding is behind schedule",
+    "body": "We're building an integration that pulls analytics data nightly and we're hitting rate limit errors after only about 50 requests, way lower than the documented limit. Separately, our onboarding has been dragging for a few weeks and our CSM hasn't responded to my last two emails, which is starting to worry me given how much we're paying for this contract.",
+    "reporter_profile": "multi-issue"
+  },
+  {
+    "id": "TKT-0033",
+    "created_at": "2026-06-08T13:15:00Z",
+    "customer_tier": "gold",
+    "product_area": "analytics",
+    "channel": "email",
+    "subject": "Our numbers don't match what we report to our own customers and that's a real problem",
+    "body": "We use your analytics as the source of truth in reports we send to our customers. This month the numbers shifted noticeably compared to last month's methodology with no announcement, and now we look like we don't know our own data. This is exactly the kind of thing that makes renewal conversations awkward.",
+    "reporter_profile": "escalation-threat"
+  },
+  {
+    "id": "TKT-0034",
+    "created_at": "2026-06-09T11:00:00Z",
+    "customer_tier": "standard",
+    "product_area": "analytics",
+    "channel": "chat",
+    "subject": "chart tooltips show wrong label",
+    "body": "hovering over the blue line on the trend chart shows the label for the red line instead. numbers themselves look right just the tooltip label is swapped. weird one",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0035",
+    "created_at": "2026-06-10T09:30:00Z",
+    "customer_tier": "standard",
+    "product_area": "analytics",
+    "channel": "portal",
+    "subject": "CSV export is missing the region column",
+    "body": "When I view the report in the browser I can see a 'region' column, but it's not included when I export to CSV. Would like that column in the export too.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0036",
+    "created_at": "2026-06-11T15:40:00Z",
+    "customer_tier": "standard",
+    "product_area": "analytics",
+    "channel": "email",
+    "subject": "only preset date ranges, no custom",
+    "body": "I can only pick 'last 7 days', 'last 30 days' etc, there's no way to type in a custom start and end date. We need a specific fiscal quarter that doesn't line up with any preset. Not sure if this is a bug or just missing feature.",
+    "reporter_profile": "vague-frustrated"
+  },
+  {
+    "id": "TKT-0037",
+    "created_at": "2026-06-12T10:05:00Z",
+    "customer_tier": "standard",
+    "product_area": "analytics",
+    "channel": "chat",
+    "subject": "pie chart colors don't match the legend",
+    "body": "on the traffic source pie chart, the color for 'organic' in the legend is green but the actual green slice in the chart is 'referral'. probably just a caching thing on my end, I'll try clearing my browser cache first, but wanted to flag in case it's not just me.",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0038",
+    "created_at": "2026-06-13T14:20:00Z",
+    "customer_tier": "gold",
+    "product_area": "analytics",
+    "channel": "portal",
+    "subject": "Exported data has duplicate rows",
+    "body": "Exporting last week's activity report gives me duplicate rows for maybe 5% of entries \u2014 same timestamp, same values, appearing twice. Makes our downstream totals slightly wrong when we import into our own system.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0039",
+    "created_at": "2026-06-14T08:48:00Z",
+    "customer_tier": "standard",
+    "product_area": "analytics",
+    "channel": "email",
+    "subject": "period-over-period comparison math looks off sometimes",
+    "body": "The 'vs previous period' percentage on our dashboard is usually right but I've caught it showing a decrease when the raw numbers clearly went up, maybe once every couple weeks. Hard to catch since it self-corrects on refresh sometimes.",
+    "reporter_profile": "vague-frustrated"
+  },
+  {
+    "id": "TKT-0040",
+    "created_at": "2026-06-15T13:00:00Z",
+    "customer_tier": "standard",
+    "product_area": "analytics",
+    "channel": "chat",
+    "subject": "dashboard takes forever to load but does eventually",
+    "body": "our main dashboard takes like 15-20 seconds to load every morning, used to be a couple seconds. still works, just annoying to wait every time",
+    "reporter_profile": "vague-frustrated"
+  },
+  {
+    "id": "TKT-0041",
+    "created_at": "2026-06-16T09:55:00Z",
+    "customer_tier": "standard",
+    "product_area": "analytics",
+    "channel": "portal",
+    "subject": "currency shows as $ even though we're a EUR account",
+    "body": "All our analytics reports display amounts with a dollar sign even though our account is set to EUR and all our billing is in euros. The numbers themselves seem right, just the currency symbol is wrong.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0042",
+    "created_at": "2026-06-17T11:12:00Z",
+    "customer_tier": "gold",
+    "product_area": "analytics",
+    "channel": "email",
+    "subject": "Would like a 'time to resolution' metric added",
+    "body": "We'd find it really useful if there were a built-in metric tracking average time-to-resolution per ticket, broken out by team. Currently we calculate this manually from exports. Not urgent, just a nice-to-have.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0043",
+    "created_at": "2026-06-18T15:35:00Z",
+    "customer_tier": "standard",
+    "product_area": "analytics",
+    "channel": "chat",
+    "subject": "drill-down click doesn't always work",
+    "body": "clicking a bar on the chart to drill into details works most of the time but every so often nothing happens when I click. clicking again usually fixes it. minor annoyance",
+    "reporter_profile": "vague-frustrated"
+  },
+  {
+    "id": "TKT-0044",
+    "created_at": "2026-06-19T10:20:00Z",
+    "customer_tier": "standard",
+    "product_area": "analytics",
+    "channel": "portal",
+    "subject": "saved dashboard forgets my widget order",
+    "body": "I arrange my dashboard widgets in a specific order and save the view, but next time I log in they're back to a different order. Have to rearrange every time. My guess is it's a browser storage/cookies thing since it started around when I cleared my cookies a few weeks back, but happy to be wrong.",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0045",
+    "created_at": "2026-06-20T14:00:00Z",
+    "customer_tier": "standard",
+    "product_area": "analytics",
+    "channel": "email",
+    "subject": "export filename is just 'export.csv' every time",
+    "body": "Small thing but the downloaded file is always named 'export.csv' with no date or report name in it, so I have to rename every file manually to keep track of them. Would be nice if it included the report name and date.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0046",
+    "created_at": "2026-06-21T08:30:00Z",
+    "customer_tier": "standard",
+    "product_area": "analytics",
+    "channel": "chat",
+    "subject": "legend text gets cut off for long category names",
+    "body": "when a category name is long, like 'Enterprise Onboarding Requests', the legend just truncates it with no way to see the full name, not even a tooltip. minor visual thing",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0047",
+    "created_at": "2026-06-22T12:15:00Z",
+    "customer_tier": "platinum",
+    "product_area": "analytics",
+    "channel": "portal",
+    "subject": "Our analytics have been wrong for weeks and nobody caught it \u2014 need a call today",
+    "body": "We just realized during an internal audit that our conversion rate metric has been under-reporting by roughly 30% since a change you made a month ago. We've been making decisions off bad numbers for weeks. I need someone senior on a call today, this is a serious trust issue for us heading into renewal season.",
+    "reporter_profile": "escalation-threat"
+  },
+  {
+    "id": "TKT-0048",
+    "created_at": "2026-06-23T09:00:00Z",
+    "customer_tier": "gold",
+    "product_area": "analytics",
+    "channel": "email",
+    "subject": "Report subscription unsubscribed itself?",
+    "body": "I was subscribed to the daily summary report and it just stopped coming about a week ago. I didn't unsubscribe myself as far as I know. Can you check if something changed on your end?",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0049",
+    "created_at": "2026-06-24T16:45:00Z",
+    "customer_tier": "gold",
+    "product_area": "analytics",
+    "channel": "chat",
+    "subject": "Our numbers are fine, just wanted feedback on the new dashboard layout",
+    "body": "Not reporting a bug \u2014 just want to say the new dashboard layout that rolled out this week is a bit harder to scan than the old one for our team. Numbers are all accurate. Wanted to pass along the feedback in case it's useful for you.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0050",
+    "created_at": "2026-06-25T10:30:00Z",
+    "customer_tier": "standard",
+    "product_area": "analytics",
+    "channel": "portal",
+    "subject": "Weekend data seems to be missing from weekly reports",
+    "body": "Comparing our weekly report totals against daily numbers I tracked myself, it looks like Saturday and Sunday activity isn't being included in the weekly rollup, only Monday-Friday. We're on Pacific time so my first guess was a timezone setting we could just fix ourselves, but I checked our account settings and the timezone looks correctly configured.",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0051",
+    "created_at": "2026-06-01T09:00:00Z",
+    "customer_tier": "platinum",
+    "product_area": "integrations",
+    "channel": "portal",
+    "subject": "Webhook deliveries completely stopped at 3am",
+    "body": "Our integration relies on your outbound webhooks to trigger downstream billing events. Nothing has come through since 3am today per our logs, and your status page shows all green. We have invoices that won't go out if this isn't fixed today.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0052",
+    "created_at": "2026-06-02T13:20:00Z",
+    "customer_tier": "gold",
+    "product_area": "integrations",
+    "channel": "email",
+    "subject": "Our CRM sync has been silently failing and nobody told us",
+    "body": "We just discovered that the two-way sync between your platform and our CRM has been failing since sometime last week \u2014 records created here never appeared there. We only caught it because a customer complained about a missed follow-up. If there's no failure alerting for this, that's a serious gap, and honestly it's making us reconsider the integration entirely.",
+    "reporter_profile": "escalation-threat"
+  },
+  {
+    "id": "TKT-0053",
+    "created_at": "2026-06-03T10:40:00Z",
+    "customer_tier": "platinum",
+    "product_area": "integrations",
+    "channel": "chat",
+    "subject": "Our Slack notifications stopped, must be a Slack API problem on your end",
+    "body": "We haven't gotten a single Slack alert from your integration in two days. I checked Slack's status page and everything's green there, so it has to be something wrong with how you're calling their API. Can you check your Slack integration logs?",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0054",
+    "created_at": "2026-06-04T15:05:00Z",
+    "customer_tier": "standard",
+    "product_area": "integrations",
+    "channel": "portal",
+    "subject": "API returning 429s way more than it used to, plus a question about webhooks",
+    "body": "Our nightly batch job started getting rate-limited around 20% of requests this week, previously almost never happened. Also unrelated question \u2014 is there a way to filter which event types trigger a webhook, or does it fire on everything?",
+    "reporter_profile": "multi-issue"
+  },
+  {
+    "id": "TKT-0055",
+    "created_at": "2026-06-05T08:15:00Z",
+    "customer_tier": "gold",
+    "product_area": "integrations",
+    "channel": "email",
+    "subject": "Field mapping broke after your last integration update",
+    "body": "Custom fields we mapped between systems are now landing in the wrong fields on our side \u2014 'company size' is showing up in the 'industry' field. We think it's because our CRM admin relabeled a field on our end last week, but the timing lines up a little too well with your last integration update too, so wanted to check both possibilities.",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0056",
+    "created_at": "2026-06-06T11:50:00Z",
+    "customer_tier": "standard",
+    "product_area": "integrations",
+    "channel": "chat",
+    "subject": "getting auth errors connecting to our data warehouse",
+    "body": "trying to set up the data warehouse export and keep getting 'authentication failed' even though I've triple checked the credentials I entered. not sure if its our warehouse settings or something on your side",
+    "reporter_profile": "vague-frustrated"
+  },
+  {
+    "id": "TKT-0057",
+    "created_at": "2026-06-07T14:00:00Z",
+    "customer_tier": "gold",
+    "product_area": "integrations",
+    "channel": "portal",
+    "subject": "Zapier integration duplicating records",
+    "body": "Every record that comes through our Zapier connection is being created twice on your side. Started a few days ago. I'm guessing Zapier itself is misfiring the trigger twice, since we haven't touched our Zap configuration \u2014 might be worth us reaching out to Zapier support too, but wanted to flag here first in case it's something you can see on your end.",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0058",
+    "created_at": "2026-06-08T09:25:00Z",
+    "customer_tier": "standard",
+    "product_area": "integrations",
+    "channel": "email",
+    "subject": "Can integrations support OAuth instead of API keys?",
+    "body": "We'd prefer to connect using OAuth rather than a long-lived API key for security reasons on our end. Is that an option, or is API key the only supported method right now?",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0059",
+    "created_at": "2026-06-09T13:40:00Z",
+    "customer_tier": "standard",
+    "product_area": "integrations",
+    "channel": "chat",
+    "subject": "webhook payload missing a field it used to have",
+    "body": "the webhook payload used to include a 'previous_status' field when a status changes, now it's just gone. we use it to log transitions. did something change recently?",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0060",
+    "created_at": "2026-06-10T10:10:00Z",
+    "customer_tier": "standard",
+    "product_area": "integrations",
+    "channel": "portal",
+    "subject": "Integration marketplace listing has outdated setup instructions",
+    "body": "The setup guide for the calendar integration references a 'Connect' button that isn't where the guide says it is anymore \u2014 took me a while to find it under settings instead. Not a functional issue, the docs are just stale.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0061",
+    "created_at": "2026-06-11T16:15:00Z",
+    "customer_tier": "platinum",
+    "product_area": "integrations",
+    "channel": "email",
+    "subject": "Payment processor integration failed silently, customers charged twice",
+    "body": "We found out from an angry customer that our payment integration double-charged them last week. Looking into it, it seems like a retry mechanism fired even though the first charge succeeded. We need to know the scope of this immediately \u2014 how many customers were affected \u2014 and a fix.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0062",
+    "created_at": "2026-06-12T08:30:00Z",
+    "customer_tier": "gold",
+    "product_area": "integrations",
+    "channel": "chat",
+    "subject": "our custom integration broke and we think it's a versioning thing, also billing question",
+    "body": "our internal integration started throwing schema validation errors yesterday, we suspect you shipped an API version bump without us noticing. separately, can someone from billing reach out about our invoice from last month, the seat count looks off",
+    "reporter_profile": "multi-issue"
+  },
+  {
+    "id": "TKT-0063",
+    "created_at": "2026-06-13T11:00:00Z",
+    "customer_tier": "standard",
+    "product_area": "integrations",
+    "channel": "portal",
+    "subject": "Test webhook button doesn't seem to do anything",
+    "body": "Clicking 'send test webhook' in the integration settings shows a success toast but I never actually receive anything at my endpoint. My real webhooks do work though when actual events happen, just the test button seems broken.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0064",
+    "created_at": "2026-06-14T14:45:00Z",
+    "customer_tier": "standard",
+    "product_area": "integrations",
+    "channel": "email",
+    "subject": "Rate limit headers show inconsistent numbers",
+    "body": "The X-RateLimit-Remaining header sometimes goes up between requests instead of only down, which is confusing when we're trying to build backoff logic against it. Not blocking us today, just seems like a bug worth flagging.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0065",
+    "created_at": "2026-06-15T09:50:00Z",
+    "customer_tier": "standard",
+    "product_area": "integrations",
+    "channel": "chat",
+    "subject": "my integration keeps disconnecting randomly",
+    "body": "every few days I get an email saying my integration was disconnected and I have to reauthorize it. annoying, would like to know why its happening",
+    "reporter_profile": "vague-frustrated"
+  },
+  {
+    "id": "TKT-0066",
+    "created_at": "2026-06-16T13:25:00Z",
+    "customer_tier": "standard",
+    "product_area": "integrations",
+    "channel": "portal",
+    "subject": "Where's the changelog for the API?",
+    "body": "Trying to figure out what changed in the last API update but can't find a changelog anywhere in the docs. Would be helpful to have one so we can catch breaking changes before they hit us.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0067",
+    "created_at": "2026-06-17T10:00:00Z",
+    "customer_tier": "gold",
+    "product_area": "integrations",
+    "channel": "email",
+    "subject": "Sync is 'working' but honestly this whole integration has been nothing but problems since day one",
+    "body": "Technically the sync is running right now without errors, but we've had four separate incidents with this integration in two months and I'm losing confidence in it. I know each one gets fixed individually but the pattern itself is the problem at this point.",
+    "reporter_profile": "vague-frustrated"
+  },
+  {
+    "id": "TKT-0068",
+    "created_at": "2026-06-18T15:10:00Z",
+    "customer_tier": "standard",
+    "product_area": "integrations",
+    "channel": "chat",
+    "subject": "webhook retries seem excessive",
+    "body": "when my endpoint is briefly down, I get slammed with retries way faster than makes sense, like a burst of 10 in one second. figured our server might just be under-provisioned and struggling to queue the incoming load, so we're looking at bumping our instance size, but wanted to check if the retry pattern itself is expected first.",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0069",
+    "created_at": "2026-06-19T08:40:00Z",
+    "customer_tier": "standard",
+    "product_area": "integrations",
+    "channel": "portal",
+    "subject": "Integration icon looks blurry in the marketplace listing",
+    "body": "Small thing, our custom integration's icon looks pixelated in the marketplace compared to how crisp it looks in our own upload. Might be a resizing/compression issue on your end.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0070",
+    "created_at": "2026-06-20T12:55:00Z",
+    "customer_tier": "platinum",
+    "product_area": "integrations",
+    "channel": "chat",
+    "subject": "Our entire integration marketplace listing disappeared and customers can't find us",
+    "body": "We're a partner with a listing in your integration marketplace and as of this morning our listing is completely gone from search and browse. We get a meaningful chunk of new customer discovery through that listing and this is a revenue-impacting problem for us.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0071",
+    "created_at": "2026-06-21T09:15:00Z",
+    "customer_tier": "gold",
+    "product_area": "integrations",
+    "channel": "email",
+    "subject": "Getting intermittent timeouts on the bulk import endpoint",
+    "body": "Roughly one in ten calls to the bulk import endpoint times out after 30 seconds, the rest succeed fine. Retrying the failed ones usually works. We assumed it was our payloads being too large on the failing calls, but we checked and the failed ones aren't noticeably bigger than the ones that succeed.",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0072",
+    "created_at": "2026-06-22T14:20:00Z",
+    "customer_tier": "standard",
+    "product_area": "integrations",
+    "channel": "chat",
+    "subject": "integration setup wizard skipped a step for me",
+    "body": "going through the setup wizard for the calendar integration, it jumped from step 2 straight to step 4, never showed me step 3 which I think was permission scopes. everything seems to work but not sure if I'm missing a config",
+    "reporter_profile": "vague-frustrated"
+  },
+  {
+    "id": "TKT-0073",
+    "created_at": "2026-06-23T10:35:00Z",
+    "customer_tier": "standard",
+    "product_area": "integrations",
+    "channel": "portal",
+    "subject": "Can we get a sandbox/test environment for integrations?",
+    "body": "Right now the only way to test our integration changes is against production data, which makes us nervous. Is there a sandbox environment available, or planned?",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0074",
+    "created_at": "2026-06-24T13:05:00Z",
+    "customer_tier": "gold",
+    "product_area": "integrations",
+    "channel": "email",
+    "subject": "URGENT integration down, also is there a discount for annual billing",
+    "body": "Our order sync integration has been throwing connection refused errors since about an hour ago, this is blocking new orders from flowing through. Separately, whenever someone gets a chance, I'd love to know if there's a discount for switching to annual billing.",
+    "reporter_profile": "multi-issue"
+  },
+  {
+    "id": "TKT-0075",
+    "created_at": "2026-06-25T15:50:00Z",
+    "customer_tier": "standard",
+    "product_area": "integrations",
+    "channel": "chat",
+    "subject": "are you guys down? nothing is syncing",
+    "body": "nothing has synced in like an hour, is this a known issue? checked the status page and it says everything's fine which is confusing",
+    "reporter_profile": "vague-frustrated"
+  },
+  {
+    "id": "TKT-0076",
+    "created_at": "2026-06-01T07:30:00Z",
+    "customer_tier": "platinum",
+    "product_area": "auth",
+    "channel": "portal",
+    "subject": "Nobody in our org can log in as of 20 minutes ago",
+    "body": "Every user at our company is getting 'invalid credentials' when logging in, including accounts we know have correct passwords because we just reset one to confirm. This started about 20 minutes ago. We have a live customer demo in an hour that depends on this.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0077",
+    "created_at": "2026-06-02T09:12:00Z",
+    "customer_tier": "gold",
+    "product_area": "auth",
+    "channel": "email",
+    "subject": "SSO has been broken since yesterday's IdP config change and this is a compliance issue for us",
+    "body": "We updated our SAML settings yesterday per your migration guide and now nobody can log in via SSO \u2014 direct login still works for the few of us with fallback accounts. Our security team requires SSO-only access per our compliance policy, so having fallback accounts active is itself a finding we'll need to explain. Need this resolved today.",
+    "reporter_profile": "escalation-threat"
+  },
+  {
+    "id": "TKT-0078",
+    "created_at": "2026-06-03T14:00:00Z",
+    "customer_tier": "platinum",
+    "product_area": "auth",
+    "channel": "chat",
+    "subject": "Users getting logged out randomly, must be a session timeout that's too short",
+    "body": "We're getting complaints that people get logged out mid-task, sometimes only 10 minutes into a session. I checked our session timeout setting and it's configured for 8 hours, so this has to be a bug where the timeout setting isn't actually being applied.",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0079",
+    "created_at": "2026-06-04T11:25:00Z",
+    "customer_tier": "standard",
+    "product_area": "auth",
+    "channel": "portal",
+    "subject": "Can't reset my password, reset email never arrives",
+    "body": "Requested a password reset three times over the last hour and never got the email, checked spam too. My IT team thinks our corporate mail filter might be blocking it since we've had that happen with other vendors before, but I wanted to check with you as well since I'm locked out and need in today for a deadline.",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0080",
+    "created_at": "2026-06-05T10:10:00Z",
+    "customer_tier": "gold",
+    "product_area": "auth",
+    "channel": "email",
+    "subject": "New hires can't get permissions right, and also can we change our billing contact",
+    "body": "We've onboarded 4 new team members this week and none of them are landing with the correct role permissions we assigned \u2014 they're all stuck with view-only access despite being set as editors. Separately, could someone update our billing contact email, it's still pointing to someone who left the company.",
+    "reporter_profile": "multi-issue"
+  },
+  {
+    "id": "TKT-0081",
+    "created_at": "2026-06-06T15:30:00Z",
+    "customer_tier": "standard",
+    "product_area": "auth",
+    "channel": "chat",
+    "subject": "MFA code never arrives on my phone",
+    "body": "Set up two-factor with SMS and the code text never shows up, tried three times over 10 minutes. I switched carriers last month so I'm guessing my new carrier is just slow with these kinds of texts, but three tries with nothing coming through seems like a lot even for that.",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0082",
+    "created_at": "2026-06-07T09:45:00Z",
+    "customer_tier": "platinum",
+    "product_area": "auth",
+    "channel": "portal",
+    "subject": "A deprovisioned employee still has active access",
+    "body": "We offboarded an employee two weeks ago through our HR system, which should sync deprovisioning to your platform automatically per our SSO/SCIM setup. We just discovered they were still able to log in yesterday. This is a security incident on our end and we need to understand why the sync didn't work.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0083",
+    "created_at": "2026-06-08T13:05:00Z",
+    "customer_tier": "gold",
+    "product_area": "auth",
+    "channel": "email",
+    "subject": "Can I have two admins on our account?",
+    "body": "Currently only one person on our team has admin rights and they're going on leave soon. Is it possible to have a second admin, and if so how do I set that up?",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0084",
+    "created_at": "2026-06-09T10:50:00Z",
+    "customer_tier": "standard",
+    "product_area": "auth",
+    "channel": "chat",
+    "subject": "login page looks broken on my phone",
+    "body": "on my phone the login button is half off the screen, have to zoom out to tap it. works fine on desktop. using an iphone if that helps",
+    "reporter_profile": "vague-frustrated"
+  },
+  {
+    "id": "TKT-0085",
+    "created_at": "2026-06-10T14:15:00Z",
+    "customer_tier": "standard",
+    "product_area": "auth",
+    "channel": "portal",
+    "subject": "Permission group changes take a while to apply",
+    "body": "When I move someone to a different permission group it seems to take 10-15 minutes before their access actually reflects the change, even after they log out and back in. Not blocking, just want to know if that's expected.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0086",
+    "created_at": "2026-06-11T08:20:00Z",
+    "customer_tier": "standard",
+    "product_area": "auth",
+    "channel": "email",
+    "subject": "\"Remember me\" checkbox doesn't actually remember me",
+    "body": "I check the 'remember me' box every time I log in but I still get logged out and have to sign in again after closing my browser. Minor annoyance, been happening for a while.",
+    "reporter_profile": "vague-frustrated"
+  },
+  {
+    "id": "TKT-0087",
+    "created_at": "2026-06-12T11:40:00Z",
+    "customer_tier": "gold",
+    "product_area": "auth",
+    "channel": "chat",
+    "subject": "getting logged out of one app but not another, we use two of your products",
+    "body": "we have both the core platform and the reporting add-on, logging into one doesn't seem to log me into the other automatically like it used to, have to sign in twice now",
+    "reporter_profile": "vague-frustrated"
+  },
+  {
+    "id": "TKT-0088",
+    "created_at": "2026-06-13T16:00:00Z",
+    "customer_tier": "standard",
+    "product_area": "auth",
+    "channel": "portal",
+    "subject": "Password requirements message is confusing",
+    "body": "The password rules text says 'must include a special character' but when I use an underscore it says that doesn't count as special. Would help to just list which characters are allowed.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0089",
+    "created_at": "2026-06-14T09:35:00Z",
+    "customer_tier": "standard",
+    "product_area": "auth",
+    "channel": "chat",
+    "subject": "dark mode login screen has low contrast text",
+    "body": "on dark mode the 'forgot password' link is really hard to read, dark gray on black. can still click it, just squinting to see it",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0090",
+    "created_at": "2026-06-15T12:20:00Z",
+    "customer_tier": "platinum",
+    "product_area": "auth",
+    "channel": "email",
+    "subject": "Users report seeing another company's data after logging in this morning",
+    "body": "Two of our admins reported briefly seeing a dashboard that clearly wasn't ours this morning \u2014 different company name, different data \u2014 before it corrected itself on refresh. This is extremely concerning from a security standpoint and we need to understand what happened immediately.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0091",
+    "created_at": "2026-06-16T10:05:00Z",
+    "customer_tier": "gold",
+    "product_area": "auth",
+    "channel": "portal",
+    "subject": "Our SAML certificate is expiring soon, what do we need to do?",
+    "body": "I got a notice that our SAML signing certificate expires in three weeks. What's the process to update it on our end and is there anything you need from us in advance?",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0092",
+    "created_at": "2026-06-17T14:50:00Z",
+    "customer_tier": "standard",
+    "product_area": "auth",
+    "channel": "chat",
+    "subject": "account got locked after failed attempts, seems too aggressive",
+    "body": "typed my password wrong twice and got locked out for what the message says is 30 minutes. seems like a short number of attempts to trigger a lockout, is that normal?",
+    "reporter_profile": "vague-frustrated"
+  },
+  {
+    "id": "TKT-0093",
+    "created_at": "2026-06-18T08:15:00Z",
+    "customer_tier": "standard",
+    "product_area": "auth",
+    "channel": "email",
+    "subject": "Invite link for new team member says expired immediately",
+    "body": "Sent an invite to a new hire and they clicked the link within a couple minutes but got an 'invite expired' error. Tried sending a fresh invite, same result immediately. My best guess is their corporate email client is prefetching/scanning the link before they click it, which sometimes burns one-time links like this \u2014 but wanted to check with you since it's blocking their onboarding.",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0094",
+    "created_at": "2026-06-19T11:30:00Z",
+    "customer_tier": "standard",
+    "product_area": "auth",
+    "channel": "portal",
+    "subject": "Would like an audit log of login attempts",
+    "body": "For our internal security review we'd like to see a log of login attempts (successful and failed) for our org, including timestamps and IP addresses if possible. Not sure if this exists somewhere I'm not seeing.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0095",
+    "created_at": "2026-06-20T15:00:00Z",
+    "customer_tier": "gold",
+    "product_area": "auth",
+    "channel": "chat",
+    "subject": "I got logged into someone else's account for a second, seemed like a fluke",
+    "body": "Weird one \u2014 for about a second when I logged in this morning I saw a different name in the top corner that wasn't mine, then it flipped to my name and everything looked normal after that. Might've been nothing but wanted to mention it just in case.",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0096",
+    "created_at": "2026-06-21T09:10:00Z",
+    "customer_tier": "standard",
+    "product_area": "auth",
+    "channel": "email",
+    "subject": "Can't remove a former employee from the account, delete button is grayed out",
+    "body": "Trying to remove a departed employee's user account and the 'remove user' button is grayed out with no explanation. They're not an owner or billing admin as far as I can tell.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0097",
+    "created_at": "2026-06-22T13:45:00Z",
+    "customer_tier": "standard",
+    "product_area": "auth",
+    "channel": "chat",
+    "subject": "typo on the signup page",
+    "body": "noticed 'recieve' is misspelled on the account creation confirmation screen, should be 'receive'. not a big deal just thought I'd flag it",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0098",
+    "created_at": "2026-06-23T10:25:00Z",
+    "customer_tier": "platinum",
+    "product_area": "auth",
+    "channel": "portal",
+    "subject": "This is the third auth incident this quarter and we're evaluating alternatives",
+    "body": "Login worked fine after a brief SSO hiccup this morning, resolved itself within 15 minutes. I'm not filing this as urgent technically, but I want it on record that this is the third SSO-related incident we've had this quarter, and our leadership is now actively discussing whether to continue with this platform. Someone from your side should be aware of the pattern, not just the individual ticket.",
+    "reporter_profile": "escalation-threat"
+  },
+  {
+    "id": "TKT-0099",
+    "created_at": "2026-06-24T16:10:00Z",
+    "customer_tier": "gold",
+    "product_area": "auth",
+    "channel": "email",
+    "subject": "Login works but takes 20+ seconds to complete",
+    "body": "Not failing, just very slow \u2014 from clicking login to landing on the dashboard is taking 20-25 seconds consistently, used to be near-instant. Team's noticed it and it's a bit painful every morning.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0100",
+    "created_at": "2026-06-25T09:00:00Z",
+    "customer_tier": "standard",
+    "product_area": "auth",
+    "channel": "chat",
+    "subject": "is there a way to require longer passwords for our org?",
+    "body": "our security team wants to enforce a 12-character minimum instead of the default 8, is that something we can configure ourselves or does it need to be set on your end?",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0101",
+    "created_at": "2026-06-01T10:00:00Z",
+    "customer_tier": "platinum",
+    "product_area": "content-management",
+    "channel": "portal",
+    "subject": "Publish button doing nothing, we have a launch in 2 hours",
+    "body": "Clicking 'publish' on our campaign landing page just spins forever and never completes, no error message. We're launching a major campaign in 2 hours and this page is central to it. Tried three different browsers.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0102",
+    "created_at": "2026-06-02T14:30:00Z",
+    "customer_tier": "gold",
+    "product_area": "content-management",
+    "channel": "email",
+    "subject": "Published content reverted to an old version overnight, this is a big deal for us",
+    "body": "We published updated pricing information yesterday afternoon and this morning it's showing the old pricing again, as if our edits never happened. We have no record of anyone reverting it. Customers may have seen incorrect pricing overnight. Need to understand what happened and confirm it's fixed.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0103",
+    "created_at": "2026-06-03T09:20:00Z",
+    "customer_tier": "platinum",
+    "product_area": "content-management",
+    "channel": "chat",
+    "subject": "Images are broken across our whole site, must be a CDN issue on your end",
+    "body": "Every image on our published pages is showing a broken image icon as of this morning. We haven't touched our media library. This has to be a CDN outage on your side since nothing changed for us.",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0104",
+    "created_at": "2026-06-04T13:00:00Z",
+    "customer_tier": "standard",
+    "product_area": "content-management",
+    "channel": "portal",
+    "subject": "Can't upload files larger than 10MB, used to work fine",
+    "body": "Trying to upload a 15MB PDF to our resource library and getting 'file too large' \u2014 I've uploaded bigger files than this before without issue. Did the limit change recently?",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0105",
+    "created_at": "2026-06-05T11:15:00Z",
+    "customer_tier": "gold",
+    "product_area": "content-management",
+    "channel": "email",
+    "subject": "Scheduled publish didn't fire at the scheduled time",
+    "body": "We scheduled a page to go live at 9am for a product announcement timed with a press release. It's now 9:45 and the page is still in draft status, nothing published automatically. We've had to scramble to publish it manually.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0106",
+    "created_at": "2026-06-06T15:45:00Z",
+    "customer_tier": "standard",
+    "product_area": "content-management",
+    "channel": "chat",
+    "subject": "version history shows wrong author for some edits",
+    "body": "looking at the revision history on one of our pages, a couple of the entries show my colleague's name as the author but she says she didn't make those edits. weird but not urgent",
+    "reporter_profile": "vague-frustrated"
+  },
+  {
+    "id": "TKT-0107",
+    "created_at": "2026-06-07T08:50:00Z",
+    "customer_tier": "standard",
+    "product_area": "content-management",
+    "channel": "portal",
+    "subject": "Rich text editor keeps inserting weird spacing",
+    "body": "Every time I paste text from a Google Doc into the editor it adds extra blank lines between paragraphs that I have to manually delete. Figure this is just a Google Docs quirk that isn't really fixable on your end, but wanted to mention it in case others are hitting it too.",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0108",
+    "created_at": "2026-06-08T12:10:00Z",
+    "customer_tier": "gold",
+    "product_area": "content-management",
+    "channel": "email",
+    "subject": "Broken internal links after we renamed a folder, plus a training request",
+    "body": "We renamed a content folder last week and now about a dozen internal links pointing to pages in that folder are all broken (404). Separately, we'd like to schedule a refresher training session for our new content editors sometime next month if that's something you offer.",
+    "reporter_profile": "multi-issue"
+  },
+  {
+    "id": "TKT-0109",
+    "created_at": "2026-06-09T09:30:00Z",
+    "customer_tier": "standard",
+    "product_area": "content-management",
+    "channel": "chat",
+    "subject": "preview mode shows different content than what's actually published",
+    "body": "when I hit preview before publishing it looks right, but after I publish the live page shows an older version of one section. have to refresh a few times before it catches up. probably just my browser holding onto a cached copy of the page, but it's kind of unsettling right before a launch so wanted to double check.",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0110",
+    "created_at": "2026-06-10T14:25:00Z",
+    "customer_tier": "standard",
+    "product_area": "content-management",
+    "channel": "portal",
+    "subject": "Can we get a word count in the editor?",
+    "body": "Would be helpful to see a live word count while writing, especially for content with length guidelines. Not seeing one currently, is it hidden somewhere or just not a feature?",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0111",
+    "created_at": "2026-06-11T10:55:00Z",
+    "customer_tier": "standard",
+    "product_area": "content-management",
+    "channel": "chat",
+    "subject": "table formatting breaks on mobile preview",
+    "body": "tables with more than 4 columns look fine on desktop but overflow weirdly in the mobile preview, text gets cut off. not sure how our actual visitors see it on their phones though",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0112",
+    "created_at": "2026-06-12T13:40:00Z",
+    "customer_tier": "gold",
+    "product_area": "content-management",
+    "channel": "email",
+    "subject": "Approval workflow notification not reaching our approver",
+    "body": "We have a two-step approval workflow set up and our designated approver says she never gets notified when something's waiting on her \u2014 she only finds out when someone pings her directly. This is slowing down our whole publishing process.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0113",
+    "created_at": "2026-06-13T09:05:00Z",
+    "customer_tier": "standard",
+    "product_area": "content-management",
+    "channel": "portal",
+    "subject": "Broken image icons on a few pages, might be an old CDN link",
+    "body": "I'm seeing a handful of broken images scattered across a few older pages. Could just be old external links that rotted, honestly not sure. Wanted to flag in case it's something on your end.",
+    "reporter_profile": "vague-frustrated"
+  },
+  {
+    "id": "TKT-0114",
+    "created_at": "2026-06-14T15:20:00Z",
+    "customer_tier": "standard",
+    "product_area": "content-management",
+    "channel": "chat",
+    "subject": "content tags aren't autocompleting anymore",
+    "body": "typing a tag used to show suggestions from tags weve already used, now its just a blank text field with no suggestions. still works to type manually just lost the convenience",
+    "reporter_profile": "vague-frustrated"
+  },
+  {
+    "id": "TKT-0115",
+    "created_at": "2026-06-15T08:35:00Z",
+    "customer_tier": "standard",
+    "product_area": "content-management",
+    "channel": "email",
+    "subject": "Trying to understand your content archiving policy",
+    "body": "When we archive a page instead of deleting it, how long is it retained, and is it fully removed from search/sitemaps immediately or does that take time to propagate? Planning a content cleanup and want to understand the mechanics first.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0116",
+    "created_at": "2026-06-16T11:10:00Z",
+    "customer_tier": "platinum",
+    "product_area": "content-management",
+    "channel": "portal",
+    "subject": "Our whole content team is locked out of editing, deadline today",
+    "body": "As of an hour ago, every editor on our team gets 'you don't have permission to edit this content' on pages they've edited freely for months. Nothing changed in our role assignments that we're aware of. We have content due to publish today for a partner co-marketing deadline.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0117",
+    "created_at": "2026-06-17T13:50:00Z",
+    "customer_tier": "gold",
+    "product_area": "content-management",
+    "channel": "chat",
+    "subject": "video embeds stopped playing inline, they just link out now",
+    "body": "videos we embedded used to play right on the page, now clicking them just opens a new tab to the video source instead of playing inline. changed sometime in the last week or two. figured the video hosting service we use must have changed something on their end, since we haven't touched these pages.",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0118",
+    "created_at": "2026-06-18T09:40:00Z",
+    "customer_tier": "standard",
+    "product_area": "content-management",
+    "channel": "portal",
+    "subject": "Bulk delete only removed some of the pages I selected",
+    "body": "Selected 20 old pages for bulk delete, only 14 actually got removed, the other 6 are still sitting there with no error shown. Tried again and same 6 remain.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0119",
+    "created_at": "2026-06-19T14:05:00Z",
+    "customer_tier": "standard",
+    "product_area": "content-management",
+    "channel": "email",
+    "subject": "Content our whole team worked on for weeks just vanished, please tell me it's recoverable",
+    "body": "I went to open our Q3 campaign page this morning and it's just not there anymore, not in drafts, not in trash, nowhere. We've been building this for three weeks. I'm honestly panicking a bit, please tell me there's a way to get this back.",
+    "reporter_profile": "vague-frustrated"
+  },
+  {
+    "id": "TKT-0120",
+    "created_at": "2026-06-20T10:15:00Z",
+    "customer_tier": "standard",
+    "product_area": "content-management",
+    "channel": "chat",
+    "subject": "spellcheck flags brand names as misspelled",
+    "body": "not a huge deal but the built-in spellcheck underlines our own product name every time like its a typo. would be nice to add custom dictionary words",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0121",
+    "created_at": "2026-06-21T15:30:00Z",
+    "customer_tier": "gold",
+    "product_area": "content-management",
+    "channel": "portal",
+    "subject": "This is the second time content has reverted on us and we're losing trust in the versioning system",
+    "body": "This exact 'published content reverting to an old version' issue happened to us once before a couple months ago and got fixed then. It just happened again with a different page. I know each incident probably has its own root cause but two data-integrity scares in a few months is making my team nervous about relying on this platform for anything time-sensitive.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0122",
+    "created_at": "2026-06-22T08:55:00Z",
+    "customer_tier": "standard",
+    "product_area": "content-management",
+    "channel": "email",
+    "subject": "Character limit on page titles seems really short",
+    "body": "Trying to save a page title and it's cutting me off at what looks like 60 characters with no warning, just silently truncates when I save. Would at least like a warning if there's a limit.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0123",
+    "created_at": "2026-06-23T12:00:00Z",
+    "customer_tier": "standard",
+    "product_area": "content-management",
+    "channel": "chat",
+    "subject": "page builder drag and drop is laggy",
+    "body": "dragging blocks around in the page builder has a noticeable delay now, like half a second lag between moving my mouse and the block following. used to feel instant. still works just feels sluggish",
+    "reporter_profile": "vague-frustrated"
+  },
+  {
+    "id": "TKT-0124",
+    "created_at": "2026-06-24T09:25:00Z",
+    "customer_tier": "standard",
+    "product_area": "content-management",
+    "channel": "portal",
+    "subject": "Sitemap.xml hasn't updated in weeks",
+    "body": "Checked our generated sitemap.xml and it's still missing several pages we published a few weeks ago. Worried this is affecting our SEO since search engines rely on that file.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0125",
+    "created_at": "2026-06-26T10:20:00Z",
+    "customer_tier": "standard",
+    "product_area": "content-management",
+    "channel": "chat",
+    "subject": "my browser extension might be messing with the editor toolbar",
+    "body": "the formatting toolbar in the editor looks slightly misaligned for me, icons overlapping a bit. I run a grammar-checker browser extension so I'm guessing that's injecting something into the page and causing it, not a big deal, just curious if you've heard this from others.",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0126",
+    "created_at": "2026-06-01T11:00:00Z",
+    "customer_tier": "platinum",
+    "product_area": "ai-assistant",
+    "channel": "portal",
+    "subject": "AI assistant told a customer we offer a refund policy we don't have",
+    "body": "One of our support agents used the AI assistant to draft a reply and it confidently stated we offer 90-day refunds \u2014 we don't, our policy is 30 days and non-negotiable past that. The agent sent it without catching the error and now we have a customer expecting something we can't honor. We need to know how often this is happening.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0127",
+    "created_at": "2026-06-02T09:40:00Z",
+    "customer_tier": "gold",
+    "product_area": "ai-assistant",
+    "channel": "email",
+    "subject": "AI assistant has been down for our whole team since this morning, and it's costing us time on every ticket",
+    "body": "Every time we try to use the AI assistant to draft a response it just spins and then times out, been happening since about 8am for our entire team. We built our staffing plan around this speeding up response times, so this is actively hurting our SLAs today.",
+    "reporter_profile": "escalation-threat"
+  },
+  {
+    "id": "TKT-0128",
+    "created_at": "2026-06-03T14:15:00Z",
+    "customer_tier": "standard",
+    "product_area": "ai-assistant",
+    "channel": "chat",
+    "subject": "the AI keeps giving different answers to the same question, must be broken",
+    "body": "I asked it the same question about our return process three times today and got three slightly different answers each time. That can't be right, an AI should give the same answer to the same question every time.",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0129",
+    "created_at": "2026-06-04T10:30:00Z",
+    "customer_tier": "gold",
+    "product_area": "ai-assistant",
+    "channel": "portal",
+    "subject": "AI assistant suggestion box is cut off on smaller screens, and also can we adjust the tone?",
+    "body": "On my laptop (13-inch screen) the AI suggestion panel gets cut off at the bottom and I have to scroll within a tiny box to see the whole draft, kind of awkward. Separately \u2014 is there a way to configure the tone it uses? Ours reads a bit too casual for our brand voice.",
+    "reporter_profile": "multi-issue"
+  },
+  {
+    "id": "TKT-0130",
+    "created_at": "2026-06-05T13:20:00Z",
+    "customer_tier": "standard",
+    "product_area": "ai-assistant",
+    "channel": "email",
+    "subject": "AI drafted response referenced a feature that doesn't exist in our product",
+    "body": "The AI assistant suggested telling a customer to 'check the export settings under Advanced > Bulk Export' \u2014 we don't have a Bulk Export feature at all. Caught it before sending, but wanted to flag that it's inventing features that don't exist.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0131",
+    "created_at": "2026-06-06T09:05:00Z",
+    "customer_tier": "platinum",
+    "product_area": "ai-assistant",
+    "channel": "chat",
+    "subject": "AI assistant is really slow today, takes like 15-20 seconds per suggestion",
+    "body": "Normally it's a couple seconds, today every suggestion takes 15-20 seconds to generate, which adds up fast when we're handling a high ticket volume. Still works, just painfully slow.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0132",
+    "created_at": "2026-06-07T15:35:00Z",
+    "customer_tier": "standard",
+    "product_area": "ai-assistant",
+    "channel": "portal",
+    "subject": "Can we turn off the AI assistant for certain ticket categories?",
+    "body": "We'd like to disable AI-drafted suggestions specifically for our billing dispute category, since those need a fully human touch every time, but keep it on elsewhere. Is that level of control available?",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0133",
+    "created_at": "2026-06-08T11:50:00Z",
+    "customer_tier": "gold",
+    "product_area": "ai-assistant",
+    "channel": "email",
+    "subject": "AI assistant summarized a multi-part customer complaint incorrectly, agent almost missed the real issue",
+    "body": "A customer sent a long message covering three complaints, and the AI's summary at the top only captured the least important one, completely leaving out the billing dispute buried in paragraph two. Our agent almost replied to the wrong thing. This feels like a pattern risk, not a one-off.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0134",
+    "created_at": "2026-06-09T08:25:00Z",
+    "customer_tier": "standard",
+    "product_area": "ai-assistant",
+    "channel": "chat",
+    "subject": "ai keeps suggesting the same canned response no matter what I ask",
+    "body": "feels like its stuck, every ticket i open it suggests almost the exact same generic reply regardless of what the customer actually said. wasn't like this last week \u2014 one of our admins mentioned they tweaked our custom instructions config recently, so probably that's just working as configured now, but it feels off.",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0135",
+    "created_at": "2026-06-10T14:00:00Z",
+    "customer_tier": "standard",
+    "product_area": "ai-assistant",
+    "channel": "portal",
+    "subject": "AI assistant citation links go to a 404",
+    "body": "When the AI references a specific help article it includes a link, but clicking it gives me a 404 about half the time. The article probably exists, just wrong URL being generated.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0136",
+    "created_at": "2026-06-11T10:10:00Z",
+    "customer_tier": "gold",
+    "product_area": "ai-assistant",
+    "channel": "chat",
+    "subject": "worried the AI is reading customer data it shouldn't have access to",
+    "body": "one of our agents said the AI suggestion referenced a customer's account details from a completely different, unrelated ticket. that seems like it shouldn't be possible and is honestly a little alarming from a privacy standpoint.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0137",
+    "created_at": "2026-06-12T13:30:00Z",
+    "customer_tier": "standard",
+    "product_area": "ai-assistant",
+    "channel": "email",
+    "subject": "AI assistant draft used a customer's name incorrectly",
+    "body": "Small thing but the AI keeps addressing customers by their company name instead of their first name in draft greetings, even though first name is right there in the ticket metadata. Have to manually fix every time.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0138",
+    "created_at": "2026-06-13T09:55:00Z",
+    "customer_tier": "platinum",
+    "product_area": "ai-assistant",
+    "channel": "portal",
+    "subject": "AI assistant recommended escalating a routine password reset to engineering, seems way overcalibrated",
+    "body": "For a completely standard password reset request, the AI suggested routing it to our engineering escalation queue, which would be a huge overreaction and clog up that queue unnecessarily. Meanwhile a genuinely tricky billing edge case ticket got a 'resolve directly' suggestion. Feels backwards.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0139",
+    "created_at": "2026-06-14T15:40:00Z",
+    "customer_tier": "standard",
+    "product_area": "ai-assistant",
+    "channel": "chat",
+    "subject": "can the AI draft in spanish for our spanish speaking customers?",
+    "body": "right now it only seems to draft in english even when the customer wrote in spanish. is multi language support something thats available or planned?",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0140",
+    "created_at": "2026-06-15T08:20:00Z",
+    "customer_tier": "gold",
+    "product_area": "ai-assistant",
+    "channel": "portal",
+    "subject": "AI assistant gave a customer a dangerous workaround suggestion",
+    "body": "A drafted response suggested a customer disable a security setting to fix an unrelated login issue, which would have left their account materially less secure if our agent hadn't caught it and rewritten the reply. This feels like more than a minor accuracy miss.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0141",
+    "created_at": "2026-06-16T12:05:00Z",
+    "customer_tier": "standard",
+    "product_area": "ai-assistant",
+    "channel": "email",
+    "subject": "AI keeps apologizing excessively in drafts, kind of odd tone",
+    "body": "Every single draft opens with something like 'I sincerely apologize for any inconvenience this may have caused' even for tickets that are just simple questions, not complaints. Reads a little strange to our customers. Minor thing.",
+    "reporter_profile": "vague-frustrated"
+  },
+  {
+    "id": "TKT-0142",
+    "created_at": "2026-06-17T09:15:00Z",
+    "customer_tier": "standard",
+    "product_area": "ai-assistant",
+    "channel": "chat",
+    "subject": "ai suggestion box disappeared entirely",
+    "body": "the panel where AI suggestions normally show up on the right side of the ticket view is just gone today, not even an empty state, just not there. tried refreshing. wondering if someone on our team accidentally disabled it in the admin settings, going to go check now but wanted to flag in case it's not that.",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0143",
+    "created_at": "2026-06-18T14:50:00Z",
+    "customer_tier": "platinum",
+    "product_area": "ai-assistant",
+    "channel": "portal",
+    "subject": "Third time this month the AI has given a wrong SLA commitment to a customer, we need this addressed at a program level",
+    "body": "I know each individual ticket gets fixed but this is the third instance this month of the AI drafting a specific response-time commitment ('you'll hear back within 24 hours') that doesn't match our actual contracted SLA for that account tier. Our agents are catching most of these but not all, and one already went out uncaught last week. We need a systemic fix, not another one-off patch.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0144",
+    "created_at": "2026-06-19T10:40:00Z",
+    "customer_tier": "gold",
+    "product_area": "ai-assistant",
+    "channel": "email",
+    "subject": "Feature request: let agents rate AI suggestions as helpful or not",
+    "body": "It'd be great if agents could give a quick thumbs up/down on each AI suggestion so we (and hopefully you) could track quality over time. Right now there's no way to signal when a suggestion was bad other than not using it.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0145",
+    "created_at": "2026-06-20T13:15:00Z",
+    "customer_tier": "standard",
+    "product_area": "ai-assistant",
+    "channel": "chat",
+    "subject": "ai assistant seems to be ignoring my custom instructions",
+    "body": "I set up custom instructions asking it to always mention our extended warranty program when relevant, but its just not doing that in most drafts even for tickets where it obviously applies. was working when I first set it up a few weeks ago. I'm wondering if it just needs the instructions worded more forcefully, going to try rewriting them, but wanted to flag first in case it's not a wording issue.",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0146",
+    "created_at": "2026-06-21T09:00:00Z",
+    "customer_tier": "standard",
+    "product_area": "ai-assistant",
+    "channel": "portal",
+    "subject": "AI made a factual error about a discontinued feature, we're pretty sure",
+    "body": "Not 100% certain but I think the AI referenced our old reporting dashboard that we deprecated last year as if it's still active. Could be I'm misremembering the timeline though, wanted to check with you before assuming it's wrong.",
+    "reporter_profile": "vague-frustrated"
+  },
+  {
+    "id": "TKT-0147",
+    "created_at": "2026-06-22T15:25:00Z",
+    "customer_tier": "standard",
+    "product_area": "ai-assistant",
+    "channel": "chat",
+    "subject": "ai response formatting looks broken, markdown showing as raw text",
+    "body": "the drafted response has literal asterisks and pound signs showing up instead of bold text and headers, like the markdown isn't being rendered. have to manually clean it up before sending. only started this week so maybe it's related to that browser update that pushed out recently, not sure.",
+    "reporter_profile": "wrong-diagnosis"
+  },
+  {
+    "id": "TKT-0148",
+    "created_at": "2026-06-23T11:05:00Z",
+    "customer_tier": "gold",
+    "product_area": "ai-assistant",
+    "channel": "email",
+    "subject": "AI assistant confidently told a customer their bug was 'already fixed' \u2014 it wasn't",
+    "body": "A customer asked about a known issue we've flagged as still open internally, and the AI draft said it 'has already been resolved.' Our agent caught it, but if it hadn't, we'd have told a customer something false about an active bug, which would've been a bad look when they inevitably hit it again.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0149",
+    "created_at": "2026-06-24T08:45:00Z",
+    "customer_tier": "standard",
+    "product_area": "ai-assistant",
+    "channel": "portal",
+    "subject": "Just wanted to say the AI assistant has actually been really helpful lately, one small thing though",
+    "body": "Overall really happy with the quality of suggestions the past couple weeks, way better than when we started. One small thing \u2014 it occasionally suggests closing a ticket that still has an unanswered customer question in a follow-up message, so agents need to double check before using the 'resolve' suggestion. Not urgent, just wanted to flag while also saying thanks for the improvements.",
+    "reporter_profile": "precise-technical"
+  },
+  {
+    "id": "TKT-0150",
+    "created_at": "2026-06-25T14:10:00Z",
+    "customer_tier": "platinum",
+    "product_area": "ai-assistant",
+    "channel": "chat",
+    "subject": "AI assistant just went completely offline mid-shift, need status now",
+    "body": "Working fine 10 minutes ago, now every request to the AI assistant returns a generic error immediately. Our whole floor is affected. Need to know if this is a known incident and an ETA, we're mid-shift with a full queue.",
+    "reporter_profile": "precise-technical"
+  }
+]

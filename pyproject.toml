@@ -1,0 +1,20 @@
+[project]
+name = "support-eval-harness"
+version = "0.1.0"
+description = "Eval harness for grading LLM performance on enterprise support ticket triage and response drafting."
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic>=0.40.0",
+    "pydantic>=2.6",
+    "rich>=13.7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["src*"]

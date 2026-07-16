@@ -1,0 +1,1399 @@
+{
+  "TKT-0001": {
+    "severity": "P1",
+    "true_issue": "Search index for the tenant is not being queried (index pointer or shard misconfiguration), returning empty result sets platform-wide despite content existing.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Started ~8am ET today",
+      "Affects all queries org-wide, not a subset",
+      "Content confirmed to exist via content browser"
+    ]
+  },
+  "TKT-0002": {
+    "severity": "P2",
+    "true_issue": "Search indexing pipeline has stalled or is silently failing for new content ingestion, leaving a growing backlog of unindexed documents.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Indexing stopped ~Tuesday afternoon",
+      "Older content unaffected, only new content",
+      "Backlog is 48+ hours and growing"
+    ]
+  },
+  "TKT-0003": {
+    "severity": "P1",
+    "true_issue": "Cross-tenant search results indicate a data isolation bug in the search index (not a caching issue) \u2014 one tenant's queries are matching another tenant's documents, a potential data exposure issue.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Results are from a different organization's workspace, not just stale",
+      "Not explained by permissions config",
+      "This is a data isolation issue, not cache staleness"
+    ]
+  },
+  "TKT-0004": {
+    "severity": "P1",
+    "true_issue": "A backend regression in last night's release is causing the search API to return 500 errors on most requests, taking down the customer-facing search widget.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "500 errors started after last night's release",
+      "Search API failures, not the two minor UI issues",
+      "Customer-facing help center search is down"
+    ]
+  },
+  "TKT-0005": {
+    "severity": "P2",
+    "true_issue": "Recent relevancy ranking changes have deprioritized recency/document-status signals, surfacing stale archived content above current documentation for common queries.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Regression tied to the recent relevancy algorithm update",
+      "Archived content ranking above current docs",
+      "Impacts agent efficiency on common queries"
+    ]
+  },
+  "TKT-0006": {
+    "severity": "P3",
+    "true_issue": "Autocomplete/typeahead indexing or tokenization is broken specifically for the French locale, likely a language-analyzer configuration gap.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Isolated to French-language workspace",
+      "English autocomplete works normally",
+      "Affects typeahead suggestions specifically, not full search"
+    ]
+  },
+  "TKT-0007": {
+    "severity": "P2",
+    "true_issue": "Search facet filters (e.g. status) are not being applied to the query, returning unfiltered result sets regardless of selected filter.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Status filter specifically not applying",
+      "Reproduced across multiple browsers, so not a local/client issue",
+      "Unfiltered results returned instead of an error"
+    ]
+  },
+  "TKT-0008": {
+    "severity": "P3",
+    "true_issue": "The post-migration reindex for the affected workspace either failed or never triggered, leaving its content unsearchable while still browsable directly \u2014 not a permissions issue as the customer's admin suspects.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Only the recently migrated workspace is affected",
+      "Reindex was expected but 6 days have passed",
+      "Content is browsable but not searchable, ruling out a pure permissions cause despite the customer's suspicion"
+    ]
+  },
+  "TKT-0009": {
+    "severity": "P2",
+    "true_issue": "Boolean/quoted-phrase query syntax is no longer being parsed and is falling back to plain keyword matching, breaking advanced search workflows for power users \u2014 this is a platform regression, not new-analyst syntax error, since it reproduces on the reporter's own established account.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Boolean operators and quoted phrases both affected",
+      "Reproduces on the reporter's own long-standing account, ruling out new-user syntax error",
+      "Impacts ~15 power users' core workflow"
+    ]
+  },
+  "TKT-0010": {
+    "severity": "P2",
+    "true_issue": "Search query latency has regressed significantly (from near-instant to 8-10 seconds), likely an index performance or query-planning issue rather than the unconfirmed export button problem.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Latency regression from near-instant to 8-10s",
+      "Distinguish from the unverified export button issue",
+      "Ongoing/consistent, not a one-off"
+    ]
+  },
+  "TKT-0011": {
+    "severity": "P3",
+    "true_issue": "The search tokenizer mishandles certain special characters (e.g. '&'), causing queries containing them to fail to match otherwise-present content.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Specific to special characters like '&'",
+      "Term is present in content, plain matches work otherwise"
+    ]
+  },
+  "TKT-0012": {
+    "severity": "P4",
+    "true_issue": "Sort-by-date is intermittently unstable, likely a tie-breaking or timestamp-indexing bug affecting a subset of documents.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Intermittent, not consistently reproducible",
+      "Sort order affected, not result relevance"
+    ]
+  },
+  "TKT-0013": {
+    "severity": "P3",
+    "true_issue": "Search result snippet caching is not being invalidated on content edits, showing stale preview text despite the underlying document being current.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Snippet is stale, underlying page is correct",
+      "Edit was made about a week ago"
+    ]
+  },
+  "TKT-0014": {
+    "severity": "P3",
+    "true_issue": "No synonym mapping exists for common abbreviations, so searches don't match semantically equivalent full terms \u2014 a configuration gap rather than a defect.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Request is about synonym/abbreviation mapping, not a broken feature",
+      "Specific example terms: 'PO' vs 'purchase order'"
+    ]
+  },
+  "TKT-0015": {
+    "severity": "P4",
+    "true_issue": "Search input state persists across navigation instead of resetting, a minor UI state-management issue.",
+    "correct_routing": "resolve-frontline",
+    "key_facts_needed": [
+      "Cosmetic/UX issue, not a functional search defect"
+    ]
+  },
+  "TKT-0016": {
+    "severity": "P4",
+    "true_issue": "Recent-search history is not persisting across sessions/tabs, a minor UX regression in a convenience feature.",
+    "correct_routing": "resolve-frontline",
+    "key_facts_needed": [
+      "Recent searches not persisting",
+      "Not blocking core search functionality"
+    ]
+  },
+  "TKT-0017": {
+    "severity": "P4",
+    "true_issue": "Duplicate result entries for the same document are appearing, likely an index deduplication bug \u2014 cosmetic, doesn't affect result accuracy.",
+    "correct_routing": "resolve-frontline",
+    "key_facts_needed": [
+      "Duplicates are the exact same document, not near-duplicates",
+      "Cosmetic impact only"
+    ]
+  },
+  "TKT-0018": {
+    "severity": "P4",
+    "true_issue": "This is a feature request for PDF content indexing, not a defect in existing functionality.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "This is a feature request, not a bug report"
+    ]
+  },
+  "TKT-0019": {
+    "severity": "P1",
+    "true_issue": "Search is returning no results platform-wide for this tenant, an active outage blocking the support queue \u2014 the urgency is legitimate on technical merit, not just the escalation language.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "All searches returning empty results, not intermittent",
+      "Active support queue backlog of ~40 tickets",
+      "Platinum tier, business-critical impact"
+    ]
+  },
+  "TKT-0020": {
+    "severity": "P4",
+    "true_issue": "Search has regressed to being case-sensitive when it was previously case-insensitive, likely an analyzer/tokenizer configuration change.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Case sensitivity is a regression from prior behavior",
+      "Example term given: 'api' vs 'API'"
+    ]
+  },
+  "TKT-0021": {
+    "severity": "P3",
+    "true_issue": "Search result pagination breaks past page 5 due to an offset/limit bug in the pagination logic, not an intentional result-count cap as the customer assumes \u2014 more results do exist beyond page 5.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Breaks specifically past page 5",
+      "Not an intentional cap \u2014 this is a pagination defect, not a documented limit",
+      "Only occurs with broad searches returning many results"
+    ]
+  },
+  "TKT-0022": {
+    "severity": "P3",
+    "true_issue": "Intermittent 502 errors on search requests indicate a backend reliability issue (possibly load-related or a flaky upstream dependency); the missing export button is a separate, lower-priority question.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Intermittent 502s, not constant failure",
+      "Distinguish from the separate export-button question",
+      "Retry succeeds, suggesting transient backend issue"
+    ]
+  },
+  "TKT-0023": {
+    "severity": "P3",
+    "true_issue": "Search result counts are inconsistent for identical queries over short time windows, suggesting an index consistency or cache invalidation issue worth investigating rather than dismissing as user error.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Same query returning different result counts minutes apart",
+      "Reporter is unsure of reproduction steps, needs more detail to confirm scope"
+    ]
+  },
+  "TKT-0024": {
+    "severity": "P1",
+    "true_issue": "Search visibility filtering is not respecting the internal/draft flag on the public-facing widget, exposing unpublished content \u2014 a defect in the search access-control layer, not a customer misconfiguration.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Confirmed via customer screenshot, not hypothetical",
+      "Visibility settings verified correct on customer's end",
+      "Sensitive content (pricing notes) exposed publicly"
+    ]
+  },
+  "TKT-0025": {
+    "severity": "P4",
+    "true_issue": "The search keyboard shortcut has a browser-specific compatibility bug in Firefox, likely an event-handling difference.",
+    "correct_routing": "resolve-frontline",
+    "key_facts_needed": [
+      "Firefox-specific, Chrome unaffected"
+    ]
+  },
+  "TKT-0026": {
+    "severity": "P1",
+    "true_issue": "An aggregation or double-counting bug in the analytics pipeline is inflating metrics platform-wide as of last night's processing run.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Started overnight, not gradual drift",
+      "Numbers roughly 2x expected",
+      "Board report deadline tomorrow morning"
+    ]
+  },
+  "TKT-0027": {
+    "severity": "P1",
+    "true_issue": "The analytics data processing pipeline has stalled entirely for this tenant, with no new data landing for three consecutive days.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "No new data for 3 days, dashboards frozen",
+      "Customer has a Friday reporting deadline",
+      "This is a full pipeline stall, not a display bug"
+    ]
+  },
+  "TKT-0028": {
+    "severity": "P2",
+    "true_issue": "The underlying scheduled report generation job is silently failing before the email send step (not a delivery/deliverability issue), so no report is ever being generated to send.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Two consecutive missed reports, not delivery variance",
+      "Recipient/spam config confirmed correct by customer",
+      "Root cause is report generation, not outbound mail delivery"
+    ]
+  },
+  "TKT-0029": {
+    "severity": "P2",
+    "true_issue": "The dashboard summary aggregation and the CSV export use inconsistent calculation logic (likely different filters or rounding), producing mismatched totals for the same underlying data.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "~8% discrepancy between dashboard and CSV export",
+      "Customer has verified their own math",
+      "Need to determine which source is authoritative"
+    ]
+  },
+  "TKT-0030": {
+    "severity": "P3",
+    "true_issue": "A permissions or data-scoping bug is preventing a subset of user accounts from loading custom dashboard widget data, unrelated to browser/cache.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "3 of 5 users affected, not all",
+      "Cache/browser already ruled out",
+      "Widget builder's own account unaffected"
+    ]
+  },
+  "TKT-0031": {
+    "severity": "P3",
+    "true_issue": "Date-range filtering is using UTC boundaries without adjusting for the account's local timezone, causing off-by-one-day inclusion/exclusion errors.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Off-by-one-day at both range boundaries",
+      "Account timezone is Pacific, likely a UTC conversion bug"
+    ]
+  },
+  "TKT-0032": {
+    "severity": "P2",
+    "true_issue": "The analytics export API is enforcing a rate limit well below the documented threshold, likely a misconfigured limit for this account tier, blocking the customer's integration build.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Rate limit triggers at ~50 requests vs documented higher limit",
+      "Distinguish the technical API issue from the CSM responsiveness complaint",
+      "The onboarding/CSM concern needs separate account-team attention"
+    ]
+  },
+  "TKT-0033": {
+    "severity": "P2",
+    "true_issue": "An unannounced change to metric calculation methodology has shifted reported numbers month-over-month, and the lack of change communication \u2014 not just the number shift itself \u2014 is the actual problem to address.",
+    "correct_routing": "escalate-account-team",
+    "key_facts_needed": [
+      "Methodology appears to have changed without notice",
+      "Customer relies on these numbers for their own customer-facing reporting",
+      "Relationship/communication issue as much as a technical one"
+    ]
+  },
+  "TKT-0034": {
+    "severity": "P3",
+    "true_issue": "A tooltip rendering bug is mismatching series labels on hover for multi-line trend charts, while the underlying data values are correct.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Label/tooltip issue only, underlying data confirmed correct",
+      "Specific to multi-series line charts"
+    ]
+  },
+  "TKT-0035": {
+    "severity": "P3",
+    "true_issue": "The CSV export logic omits a column present in the on-screen view, likely a mismatch between the export template and the current UI schema.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Region column present in UI but missing from CSV export specifically"
+    ]
+  },
+  "TKT-0036": {
+    "severity": "P3",
+    "true_issue": "Custom date-range selection is not available in the reporting UI, limiting customers to fixed presets \u2014 a feature gap rather than a defect.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "This is a missing feature, not a broken one",
+      "Specific need: custom fiscal quarter range"
+    ]
+  },
+  "TKT-0037": {
+    "severity": "P3",
+    "true_issue": "Pie chart slice colors are mismatched against their legend entries, a rendering bug affecting readability \u2014 not a client-side cache issue, since the color-to-category mapping is generated incorrectly server-side.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Colors mismatched between chart slices and legend for the traffic-source chart",
+      "Not resolved by clearing browser cache \u2014 the mismatch is generated server-side, not a client caching artifact"
+    ]
+  },
+  "TKT-0038": {
+    "severity": "P3",
+    "true_issue": "The export job is producing duplicate rows for a subset of records, likely a join or pagination bug in the export query.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "~5% of rows duplicated, identical timestamp and values",
+      "Affects downstream totals when customer imports the data"
+    ]
+  },
+  "TKT-0039": {
+    "severity": "P3",
+    "true_issue": "Period-over-period comparison calculations are intermittently incorrect, possibly a race condition between data refresh and comparison computation.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Intermittent, self-corrects on refresh sometimes",
+      "Direction of comparison (up/down) has been observed wrong, not just magnitude"
+    ]
+  },
+  "TKT-0040": {
+    "severity": "P3",
+    "true_issue": "Dashboard load time has regressed substantially, suggesting a query performance issue as data volume grows, though the dashboard remains functional.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Regression from a couple seconds to 15-20s",
+      "Still functional, not a failure"
+    ]
+  },
+  "TKT-0041": {
+    "severity": "P3",
+    "true_issue": "Currency formatting in analytics reports is hardcoded to USD display regardless of account currency settings, a localization bug.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Account is configured for EUR",
+      "Underlying values appear correct, only the currency symbol is wrong"
+    ]
+  },
+  "TKT-0042": {
+    "severity": "P4",
+    "true_issue": "This is a feature request for a new built-in metric, not an existing feature malfunctioning.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Feature request, not a defect",
+      "Currently worked around via manual calculation from exports"
+    ]
+  },
+  "TKT-0043": {
+    "severity": "P3",
+    "true_issue": "Chart drill-down click handling is intermittently unresponsive, likely a race condition in the click event binding after chart re-render.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Intermittent, resolved by clicking again",
+      "Not a consistent failure"
+    ]
+  },
+  "TKT-0044": {
+    "severity": "P3",
+    "true_issue": "Saved dashboard views are not persisting widget ordering due to a server-side save/load serialization bug, not a browser cookie/storage issue as the customer suspects \u2014 the layout is meant to be saved server-side per account.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Widget order not persisting across sessions despite saving",
+      "Layout is expected to be stored server-side, so a client-side cookie clear should not explain it",
+      "Ongoing for a couple weeks"
+    ]
+  },
+  "TKT-0045": {
+    "severity": "P4",
+    "true_issue": "Export filenames are generic and don't include report context, a minor usability gap rather than a defect.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Cosmetic/usability request about filename format"
+    ]
+  },
+  "TKT-0046": {
+    "severity": "P4",
+    "true_issue": "Chart legend text truncates long category names without a fallback (tooltip or wrap), a minor UI polish issue.",
+    "correct_routing": "resolve-frontline",
+    "key_facts_needed": [
+      "Cosmetic truncation issue with no tooltip fallback"
+    ]
+  },
+  "TKT-0047": {
+    "severity": "P1",
+    "true_issue": "A metric calculation change introduced roughly a month ago caused sustained under-reporting of conversion rate, and it went undetected for weeks \u2014 both the data correctness and the detection gap need addressing.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "~30% under-reporting, tied to a change ~1 month ago",
+      "Customer made business decisions on the bad data",
+      "High-value account raising trust/renewal concerns"
+    ]
+  },
+  "TKT-0048": {
+    "severity": "P2",
+    "true_issue": "The customer did not unsubscribe \u2014 a bug in subscription state handling (possibly triggered by an unrelated account change) silently deactivated their report subscription.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Customer states they did not unsubscribe",
+      "Stopped about a week ago",
+      "Need to verify subscription state server-side, not assume user error"
+    ]
+  },
+  "TKT-0049": {
+    "severity": "P4",
+    "true_issue": "No functional issue \u2014 this is UX feedback on a recent layout change, not a defect report.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Explicitly not a bug report, UX feedback only",
+      "Data accuracy confirmed fine by customer"
+    ]
+  },
+  "TKT-0050": {
+    "severity": "P3",
+    "true_issue": "The weekly rollup aggregation is excluding weekend data due to a business-days-only assumption baked into the report logic, not a customer-side timezone misconfiguration \u2014 timezone settings were confirmed correct.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Weekend (Sat/Sun) data confirmed missing from weekly totals via customer's own tracking",
+      "Customer already ruled out a timezone misconfiguration on their end",
+      "Customer does have real weekend activity"
+    ]
+  },
+  "TKT-0051": {
+    "severity": "P1",
+    "true_issue": "The outbound webhook delivery system has silently failed for this tenant since 3am, despite the platform status page showing no incident.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Zero webhook deliveries since 3am per customer logs",
+      "Status page shows no incident, so this may be tenant-specific",
+      "Downstream billing events are blocked"
+    ]
+  },
+  "TKT-0052": {
+    "severity": "P1",
+    "true_issue": "The CRM sync integration has been failing silently for roughly a week with no alerting, causing data loss for records that were never propagated downstream.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Sync failure has been silent (no alerting) for about a week",
+      "Real customer impact already occurred (missed follow-up)",
+      "Records created in this period were not synced and may need backfill"
+    ]
+  },
+  "TKT-0053": {
+    "severity": "P2",
+    "true_issue": "The Slack integration's OAuth token for this workspace has likely expired or been revoked on the platform side, not a Slack-side API issue \u2014 needs to be checked in this tenant's integration config, not assumed to be Slack's problem.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "No alerts for 2 days, Slack's own status page is green",
+      "Customer has ruled out Slack outage but not their own integration's auth state",
+      "Needs investigation of this tenant's Slack connection/token status"
+    ]
+  },
+  "TKT-0054": {
+    "severity": "P2",
+    "true_issue": "The account's effective API rate limit appears to have been reduced or is being hit more aggressively than before, causing a new pattern of 429 errors on the nightly batch job \u2014 a separate matter from the webhook filtering question.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "~20% of nightly batch requests now rate-limited, previously rare",
+      "Separate from the webhook event-filtering question, which is just informational"
+    ]
+  },
+  "TKT-0055": {
+    "severity": "P2",
+    "true_issue": "A recent integration update altered field mapping order/schema, causing custom field values to land in the wrong destination fields \u2014 a platform regression, not the customer-side field relabel they suspect.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Regression tied to last week's integration update, not the coincidental customer-side field relabel",
+      "Specific mismatch: 'company size' landing in 'industry' field"
+    ]
+  },
+  "TKT-0056": {
+    "severity": "P3",
+    "true_issue": "The data warehouse export connector is failing to authenticate despite correct credentials, suggesting a bug in the connector's auth handshake or credential encryption rather than user error.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Credentials confirmed correct by customer, ruling out simple typo",
+      "New setup, not a previously working connection that broke"
+    ]
+  },
+  "TKT-0057": {
+    "severity": "P2",
+    "true_issue": "The integration endpoint is processing each incoming trigger twice, likely a webhook retry or idempotency-key bug on the receiving end \u2014 not a Zapier-side double-firing issue as the customer suspects.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Every record duplicated, 100% reproduction",
+      "Zap configuration unchanged on customer's side",
+      "Root cause is on the receiving end's idempotency handling, not Zapier's trigger firing"
+    ]
+  },
+  "TKT-0058": {
+    "severity": "P3",
+    "true_issue": "This is a question about supported authentication methods for integrations, not a malfunction \u2014 customer wants to know if OAuth is available as an alternative to API keys.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Question about available auth methods, not a bug"
+    ]
+  },
+  "TKT-0059": {
+    "severity": "P3",
+    "true_issue": "A field was removed from the webhook payload schema, likely as part of an unannounced or under-communicated change, breaking a downstream integration that depended on it.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "'previous_status' field is missing from current payloads but was present before",
+      "Customer's status-transition logging depends on this field"
+    ]
+  },
+  "TKT-0060": {
+    "severity": "P4",
+    "true_issue": "Integration setup documentation is out of date relative to the current UI location of the connect flow, a documentation issue rather than a functional bug.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Documentation/UI mismatch, not a functional defect"
+    ]
+  },
+  "TKT-0061": {
+    "severity": "P1",
+    "true_issue": "A retry-without-idempotency bug in the payment integration caused duplicate charges for at least one customer, with unknown full scope \u2014 a financial-impact defect requiring urgent investigation and customer remediation.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Confirmed at least one real double-charge",
+      "Root cause hypothesis: retry fired despite first charge succeeding",
+      "Scope of affected customers is currently unknown and urgent to determine"
+    ]
+  },
+  "TKT-0062": {
+    "severity": "P2",
+    "true_issue": "An API schema change was likely introduced without adequate version-migration notice, breaking the customer's integration with validation errors \u2014 a distinct issue from the unrelated billing/seat-count question.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Schema validation errors started yesterday, suspected API version change",
+      "Billing/seat-count question is unrelated and needs separate routing"
+    ]
+  },
+  "TKT-0063": {
+    "severity": "P3",
+    "true_issue": "The 'send test webhook' feature reports success without actually delivering a request, a bug isolated to the test/debug tooling rather than the production webhook path.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Real webhooks confirmed working, only the test button is broken",
+      "False success indication is misleading for debugging"
+    ]
+  },
+  "TKT-0064": {
+    "severity": "P3",
+    "true_issue": "Rate limit header values are inconsistent (increasing between requests unexpectedly), likely due to load-balanced counters not being properly synchronized across servers.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Rate limit remaining count observed increasing, which shouldn't happen",
+      "Not currently blocking, but affects backoff logic reliability"
+    ]
+  },
+  "TKT-0065": {
+    "severity": "P3",
+    "true_issue": "The integration's stored auth token is expiring or being invalidated prematurely on a recurring cadence, forcing repeated reauthorization \u2014 needs investigation into token lifetime/refresh handling.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Recurring disconnects every few days, not a one-time event",
+      "Requires manual reauthorization each time"
+    ]
+  },
+  "TKT-0066": {
+    "severity": "P4",
+    "true_issue": "No public API changelog exists, making it hard for integrators to track breaking changes \u2014 a documentation/process gap rather than a defect.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Request for changelog documentation, not a bug"
+    ]
+  },
+  "TKT-0067": {
+    "severity": "P3",
+    "true_issue": "No active technical incident right now, but a pattern of four integration incidents in two months has eroded customer confidence \u2014 this is a relationship/reliability-trend issue more than a single bug to fix.",
+    "correct_routing": "escalate-account-team",
+    "key_facts_needed": [
+      "No current active incident, sync is working",
+      "Pattern of 4 incidents in 2 months is the real concern, not a single technical issue",
+      "Customer confidence/trust is the underlying problem"
+    ]
+  },
+  "TKT-0068": {
+    "severity": "P3",
+    "true_issue": "Webhook retry logic lacks proper backoff, sending rapid bursts of retries instead of a spaced-out schedule when the receiving endpoint is unavailable \u2014 not a capacity problem on the customer's receiving server, which upsizing wouldn't fix.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Retries arrive in a rapid burst (e.g. 10/second) rather than backed off",
+      "Not a customer-side capacity issue \u2014 upsizing their server wouldn't address a sender-side backoff gap",
+      "Occurs when customer's endpoint has brief downtime"
+    ]
+  },
+  "TKT-0069": {
+    "severity": "P4",
+    "true_issue": "Marketplace icon rendering is applying lossy compression or improper resizing, causing visual quality degradation for uploaded integration icons.",
+    "correct_routing": "resolve-frontline",
+    "key_facts_needed": [
+      "Cosmetic issue with icon rendering, not a functional defect"
+    ]
+  },
+  "TKT-0070": {
+    "severity": "P2",
+    "true_issue": "The partner's marketplace listing has been unpublished or removed from the index, likely due to a moderation/sync bug, cutting off a real customer-discovery and revenue channel.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Listing completely missing as of this morning, not just lower ranked",
+      "Partner relies on this for customer discovery, revenue impact",
+      "No known reason for removal on partner's end"
+    ]
+  },
+  "TKT-0071": {
+    "severity": "P3",
+    "true_issue": "The bulk import endpoint intermittently times out under normal load, likely a backend queuing or capacity issue on the platform side \u2014 not payload size, which the customer has already ruled out.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "~10% of calls timeout, retries generally succeed",
+      "Customer already ruled out payload size as the differentiator between failing and succeeding calls"
+    ]
+  },
+  "TKT-0072": {
+    "severity": "P3",
+    "true_issue": "The integration setup wizard is skipping a step (permission scopes configuration), likely a conditional-rendering bug, potentially leaving the integration under-configured even though it appears to work.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Step 3 (permission scopes) was skipped in the wizard flow",
+      "Integration appears functional but configuration completeness is unverified"
+    ]
+  },
+  "TKT-0073": {
+    "severity": "P4",
+    "true_issue": "No sandbox/test environment currently exists for integration development \u2014 a feature request, not a defect.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Feature request for a sandbox environment"
+    ]
+  },
+  "TKT-0074": {
+    "severity": "P1",
+    "true_issue": "The order sync integration is failing with connection-refused errors, actively blocking new order processing \u2014 the billing question is unrelated and non-urgent.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Connection refused errors since ~1 hour ago",
+      "New orders are actively blocked, real-time business impact",
+      "Billing question is separate and not urgent"
+    ]
+  },
+  "TKT-0075": {
+    "severity": "P3",
+    "true_issue": "Sync has stopped for roughly an hour with no corresponding status page incident, warranting investigation into whether this is a broader issue not yet reflected on the status page or isolated to this tenant.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "No sync activity for about an hour",
+      "Status page shows no incident, needs tenant-specific investigation"
+    ]
+  },
+  "TKT-0076": {
+    "severity": "P1",
+    "true_issue": "Authentication is failing org-wide for this tenant despite verified-correct credentials, indicating a platform-side auth service issue rather than user error.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Confirmed with a freshly reset password, so not a credentials issue",
+      "Started ~20 minutes ago, affects entire org",
+      "Time-sensitive: customer demo in an hour"
+    ]
+  },
+  "TKT-0077": {
+    "severity": "P1",
+    "true_issue": "A SAML/SSO configuration change (per the migration guide) has broken SSO login entirely for the tenant, and the compliance requirement to disable non-SSO fallback access compounds the urgency.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "SSO broken since yesterday's SAML config change following the migration guide",
+      "Direct/fallback login still works but violates customer's SSO-only compliance policy",
+      "Guide itself may be the source of the misconfiguration"
+    ]
+  },
+  "TKT-0078": {
+    "severity": "P3",
+    "true_issue": "Sessions are being terminated early, but likely due to a token refresh failure or a separate invalidation trigger (e.g. concurrent session limits) rather than the configured timeout setting being ignored \u2014 needs log investigation, not an assumption that the timeout field itself is broken.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Configured timeout is 8 hours but logouts occur as early as 10 minutes",
+      "Customer has ruled out the obvious config explanation but root cause is still unconfirmed",
+      "Needs session/auth log investigation to find actual trigger"
+    ]
+  },
+  "TKT-0079": {
+    "severity": "P2",
+    "true_issue": "Password reset emails are not being delivered for this account due to a transactional email delivery failure or an incorrect/unverified email on file on the platform side \u2014 needs server-side delivery log investigation rather than assuming it's the customer's corporate mail filter, since 3 consecutive full failures is unusual for filter-based blocking alone.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "3 reset attempts over an hour, none received",
+      "Customer suspects their own mail filter but hasn't confirmed it \u2014 needs server-side delivery log check too",
+      "User has a same-day deadline"
+    ]
+  },
+  "TKT-0080": {
+    "severity": "P2",
+    "true_issue": "Role/permission assignments are not taking effect for newly created users, leaving them stuck at a default view-only permission level despite being configured as editors \u2014 the billing contact update is an unrelated administrative request.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "4 new users affected, all stuck view-only despite editor assignment",
+      "Distinct from the unrelated billing contact change request"
+    ]
+  },
+  "TKT-0081": {
+    "severity": "P2",
+    "true_issue": "SMS-based MFA codes are failing to deliver for this account, likely an SMS gateway delivery issue on the platform side rather than generic carrier slowness \u2014 three consecutive full failures is inconsistent with a merely 'slow' carrier.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "3 attempts over 10 minutes, none delivered \u2014 inconsistent with the customer's 'slow carrier' theory",
+      "Recent carrier switch is a plausible but unconfirmed factor, needs platform-side SMS gateway check too",
+      "User is fully locked out without a working second factor"
+    ]
+  },
+  "TKT-0082": {
+    "severity": "P2",
+    "true_issue": "SCIM deprovisioning sync failed to deactivate the offboarded user's account, leaving unauthorized access active for roughly two weeks \u2014 a security-relevant defect in the provisioning integration.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Deprovisioning was expected to sync automatically via SCIM/SSO",
+      "Gap of ~2 weeks with unauthorized access confirmed used",
+      "This is a security incident, needs urgent root-cause and scope check for other affected accounts"
+    ]
+  },
+  "TKT-0083": {
+    "severity": "P3",
+    "true_issue": "This is a how-to question about configuring multiple admin users, not a defect.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Question about adding a second admin, not a bug"
+    ]
+  },
+  "TKT-0084": {
+    "severity": "P3",
+    "true_issue": "The login page has a mobile responsive layout bug on iOS causing the login button to render off-screen.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Mobile-specific (iPhone), desktop unaffected",
+      "Login button rendering off-screen, workaround exists (zoom out)"
+    ]
+  },
+  "TKT-0085": {
+    "severity": "P3",
+    "true_issue": "Permission changes propagate with a noticeable delay (10-15 min), likely a caching layer for permission checks \u2014 worth confirming whether this is expected behavior or an unintended lag.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Consistent 10-15 minute delay observed",
+      "Persists even after logout/login, ruling out simple session caching"
+    ]
+  },
+  "TKT-0086": {
+    "severity": "P3",
+    "true_issue": "The 'remember me' login option is not persisting sessions across browser restarts as expected, likely a cookie expiration or storage bug.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "'Remember me' checked but session not persisted across browser close",
+      "Ongoing issue, not a one-time occurrence"
+    ]
+  },
+  "TKT-0087": {
+    "severity": "P3",
+    "true_issue": "Single sign-on between the core platform and the reporting add-on has regressed, requiring separate logins where a shared session previously worked.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Cross-product SSO previously worked and no longer does",
+      "Affects both products this customer uses"
+    ]
+  },
+  "TKT-0088": {
+    "severity": "P4",
+    "true_issue": "Password requirement messaging is ambiguous about which characters qualify as 'special', a UX clarity issue rather than a functional bug.",
+    "correct_routing": "resolve-frontline",
+    "key_facts_needed": [
+      "Messaging/clarity issue, not a functional blocker \u2014 password creation is still possible with a different special character"
+    ]
+  },
+  "TKT-0089": {
+    "severity": "P4",
+    "true_issue": "Dark mode login screen has a low-contrast accessibility issue on the 'forgot password' link text.",
+    "correct_routing": "resolve-frontline",
+    "key_facts_needed": [
+      "Accessibility/contrast issue, functionally usable"
+    ]
+  },
+  "TKT-0090": {
+    "severity": "P1",
+    "true_issue": "A session or tenant-isolation bug briefly served another organization's data to this tenant's users, a serious cross-tenant data exposure incident requiring immediate investigation.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Confirmed by two separate admins, not a single unreliable report",
+      "Self-corrected on refresh, suggesting a session/cache mixup rather than a permanent breach",
+      "This is a cross-tenant data exposure, treat as a security incident"
+    ]
+  },
+  "TKT-0091": {
+    "severity": "P3",
+    "true_issue": "Proactive question about the SAML certificate renewal process ahead of expiration \u2014 not an active issue, but time-sensitive if not addressed before the expiry date.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Certificate expires in 3 weeks, proactive request, not yet broken",
+      "Needs clear renewal process steps before expiry to avoid a future outage"
+    ]
+  },
+  "TKT-0092": {
+    "severity": "P3",
+    "true_issue": "Question/complaint about whether a 2-attempt lockout threshold is intended behavior \u2014 worth confirming against the documented policy rather than assuming it's misconfigured.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Lockout triggered after only 2 failed attempts",
+      "User wants to know if this threshold is expected"
+    ]
+  },
+  "TKT-0093": {
+    "severity": "P2",
+    "true_issue": "Team invite links are expiring immediately due to a timestamp or expiration-calculation bug in the invite system \u2014 not email-client link prefetching, since a fresh invite failed identically and immediately on the second attempt too.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Link expired within minutes of being sent, reproduced twice with identical immediate failure",
+      "Prefetch theory doesn't explain two consecutive identical failures",
+      "Blocking new team member onboarding"
+    ]
+  },
+  "TKT-0094": {
+    "severity": "P4",
+    "true_issue": "Customer is asking whether a login audit log feature exists \u2014 either a discoverability gap or a feature request, not a defect.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Request/question about audit log availability, not a bug report"
+    ]
+  },
+  "TKT-0095": {
+    "severity": "P1",
+    "true_issue": "A brief flash of a different user's identity on login suggests a session/cache mixing bug with potential cross-account exposure, not simply a rendering glitch \u2014 this needs urgent investigation despite the customer downplaying it as 'probably nothing'.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Different user's name briefly displayed on login before correcting",
+      "Customer is treating this as minor, but it indicates a potential session isolation bug",
+      "Needs urgent triage despite low perceived severity from the reporter"
+    ]
+  },
+  "TKT-0096": {
+    "severity": "P2",
+    "true_issue": "The remove-user action is blocked without explanation for a user who doesn't meet the criteria that should require special handling, likely a permissions-check bug preventing legitimate offboarding.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Remove button disabled with no error message explaining why",
+      "User doesn't appear to be an owner/billing admin, so standard removal should be possible",
+      "Blocks offboarding of a departed employee, a security-relevant delay"
+    ]
+  },
+  "TKT-0097": {
+    "severity": "P4",
+    "true_issue": "A minor spelling typo exists on the account creation confirmation screen.",
+    "correct_routing": "resolve-frontline",
+    "key_facts_needed": [
+      "Cosmetic copy typo only"
+    ]
+  },
+  "TKT-0098": {
+    "severity": "P3",
+    "true_issue": "The individual technical incident was minor and self-resolved, but the pattern of three SSO incidents this quarter represents a real account-health and churn-risk signal that needs relationship-level attention, not just a standard bug ticket.",
+    "correct_routing": "escalate-account-team",
+    "key_facts_needed": [
+      "This specific incident was brief and self-resolved (15 min)",
+      "Third SSO incident this quarter \u2014 pattern matters more than this single event",
+      "Customer leadership is evaluating alternatives, real churn risk"
+    ]
+  },
+  "TKT-0099": {
+    "severity": "P3",
+    "true_issue": "Login/authentication flow latency has regressed significantly, likely a performance issue in the auth service or a downstream dependency it calls during login.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Consistent 20-25s login time, regression from near-instant",
+      "Affects the whole team, not one user"
+    ]
+  },
+  "TKT-0100": {
+    "severity": "P4",
+    "true_issue": "Customer is asking about configurability of password policy minimums \u2014 an informational question, not a defect.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Question about password policy configuration options"
+    ]
+  },
+  "TKT-0101": {
+    "severity": "P1",
+    "true_issue": "The publish action is hanging indefinitely without completing or erroring, likely a backend timeout or stuck job in the publish pipeline, blocking a time-sensitive launch.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Publish hangs with no error, reproduced across 3 browsers",
+      "Hard deadline in 2 hours for a major campaign launch"
+    ]
+  },
+  "TKT-0102": {
+    "severity": "P1",
+    "true_issue": "Published content silently reverted to a prior version without any user-initiated rollback, indicating a versioning/publish-persistence bug \u2014 potential real-world customer impact from incorrect pricing being displayed.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Content reverted overnight with no manual rollback by the customer",
+      "Customer-facing pricing was incorrect for some window of time",
+      "Need root cause plus confirmation the correct version is now stably published"
+    ]
+  },
+  "TKT-0103": {
+    "severity": "P2",
+    "true_issue": "Broken images site-wide could stem from several causes (CDN, media storage, or a broken asset-path change from a recent platform update) \u2014 needs actual investigation rather than accepting the customer's CDN assumption, especially since the platform-wide vs. tenant-specific scope isn't yet confirmed.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "All images broken as of this morning, customer made no media changes",
+      "Customer's CDN theory is unconfirmed \u2014 scope (platform-wide vs tenant-specific) needs verification",
+      "High customer-facing visual impact"
+    ]
+  },
+  "TKT-0104": {
+    "severity": "P3",
+    "true_issue": "The file upload size limit appears to have been lowered (or is being enforced incorrectly), rejecting uploads that previously succeeded at similar sizes.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "15MB file rejected, larger files previously succeeded",
+      "Possible recent change to upload limits, needs confirmation"
+    ]
+  },
+  "TKT-0105": {
+    "severity": "P2",
+    "true_issue": "The scheduled publishing job failed to trigger at the configured time, a defect in the scheduler, which forced a manual workaround for a time-sensitive announcement.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Scheduled for 9am, still in draft at 9:45am",
+      "Time-coordinated with an external press release",
+      "Manual publish was required as a workaround"
+    ]
+  },
+  "TKT-0106": {
+    "severity": "P4",
+    "true_issue": "Version history is attributing edits to the wrong author for some revisions, potentially a session/identity bug in the audit trail \u2014 worth investigating even if not urgent, since it undermines trust in the audit log.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Multiple revision entries misattributed to the wrong author",
+      "Colleague denies making the attributed edits"
+    ]
+  },
+  "TKT-0107": {
+    "severity": "P3",
+    "true_issue": "The rich text editor's own paste handler is not correctly normalizing whitespace/paragraph breaks from external sources like Google Docs \u2014 this is fixable on the platform side, not an inherent Google Docs quirk as the customer assumes.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Specific to pasting from Google Docs",
+      "This is addressable in the editor's paste handling, not an unfixable third-party quirk",
+      "Workaround (plain text paste) exists but loses desired formatting"
+    ]
+  },
+  "TKT-0108": {
+    "severity": "P2",
+    "true_issue": "Renaming a folder broke internal link references instead of the platform updating them automatically, a link-integrity bug (or a documented limitation the customer wasn't warned about) \u2014 separate from the unrelated training request.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "~12 broken internal links traced to a folder rename last week",
+      "Distinct from the separate, non-urgent training request"
+    ]
+  },
+  "TKT-0109": {
+    "severity": "P2",
+    "true_issue": "A server-side caching layer on the published page is serving stale content immediately after publish, inconsistent with preview mode \u2014 not the customer's local browser cache, since refreshing (which would clear a simple browser-cache render) doesn't immediately fix it either.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Preview shows correct content, live page briefly shows stale version post-publish",
+      "Not resolved by a single refresh, pointing to server-side cache propagation rather than local browser cache",
+      "Self-corrects after a few refreshes, suggesting a cache propagation delay"
+    ]
+  },
+  "TKT-0110": {
+    "severity": "P4",
+    "true_issue": "No word count feature currently exists in the editor \u2014 a feature request rather than a defect.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Feature request for a word count display"
+    ]
+  },
+  "TKT-0111": {
+    "severity": "P3",
+    "true_issue": "Wide tables are not responsively handled in mobile rendering/preview, causing content to overflow or truncate on smaller viewports.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Specific to tables with more than 4 columns",
+      "Desktop unaffected, mobile preview shows the issue",
+      "Uncertain if this reflects actual visitor experience or just preview"
+    ]
+  },
+  "TKT-0112": {
+    "severity": "P2",
+    "true_issue": "Approval-pending notifications are not being delivered to the designated approver, a defect in the workflow notification system that's causing real publishing delays.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Approver consistently not notified, not a one-off miss",
+      "Actively slowing down the customer's publishing workflow"
+    ]
+  },
+  "TKT-0113": {
+    "severity": "P3",
+    "true_issue": "A small number of broken images on older pages, plausibly due to expired external references rather than a platform-wide defect \u2014 needs a quick check to confirm scope before ruling either way.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Limited to a handful of older pages, not widespread",
+      "Reporter is uncertain whether it's platform-side or stale external links"
+    ]
+  },
+  "TKT-0114": {
+    "severity": "P3",
+    "true_issue": "Tag autocomplete/suggestion functionality has stopped working, a regression in a convenience feature that doesn't block core tagging functionality.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Autocomplete previously worked, now shows no suggestions",
+      "Manual tagging still functions"
+    ]
+  },
+  "TKT-0115": {
+    "severity": "P4",
+    "true_issue": "Informational question about archiving/retention policy and search de-indexing behavior \u2014 not an issue, a pre-planning question.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Question about policy/mechanics, not a bug report"
+    ]
+  },
+  "TKT-0116": {
+    "severity": "P1",
+    "true_issue": "A permissions system regression or misapplied role change is blocking previously-authorized editors from editing content they should have access to, threatening a same-day external deadline.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Started ~1 hour ago, affects entire editing team",
+      "No known role/permission changes made by the customer",
+      "Hard external deadline today"
+    ]
+  },
+  "TKT-0117": {
+    "severity": "P3",
+    "true_issue": "Inline video embed rendering has regressed to opening an external link instead of playing in-page, likely a change in the platform's own embed component \u2014 not the third-party video host, since the customer hasn't verified anything actually changed on the host's side.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Regression within the last 1-2 weeks, previously played inline",
+      "Customer hasn't confirmed the video host changed anything \u2014 assumption, not verified",
+      "Customer's own pages/embeds are unchanged"
+    ]
+  },
+  "TKT-0118": {
+    "severity": "P2",
+    "true_issue": "Bulk delete is silently failing for a subset of selected items with no error surfaced, likely a partial-batch failure in the delete operation that isn't being reported back to the user.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "6 of 20 selected pages consistently fail to delete",
+      "No error message shown despite the failure",
+      "Reproduced on a second attempt"
+    ]
+  },
+  "TKT-0119": {
+    "severity": "P1",
+    "true_issue": "A content item disappeared entirely from all expected locations (drafts, trash), suggesting either accidental hard-deletion or a data-loss bug \u2014 urgent because recoverability depends on how quickly backups/logs are checked.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Content missing from drafts and trash, not just moved",
+      "3 weeks of work at stake",
+      "Time-sensitive: recovery odds likely decrease the longer this waits"
+    ]
+  },
+  "TKT-0120": {
+    "severity": "P4",
+    "true_issue": "No custom dictionary support exists for the spellcheck feature, causing brand/product terms to be flagged incorrectly \u2014 a feature gap, not a defect.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Feature request for custom dictionary entries"
+    ]
+  },
+  "TKT-0121": {
+    "severity": "P2",
+    "true_issue": "A second occurrence of content reverting to a stale version, distinct instance but part of a recurring pattern \u2014 the technical bug needs fixing, and the repeat nature of the issue is separately eroding customer trust.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "This is a recurrence of a previously-fixed issue type, not the first time",
+      "Second incident in a few months is a trust/reliability concern worth flagging to account team as well"
+    ]
+  },
+  "TKT-0122": {
+    "severity": "P3",
+    "true_issue": "Page titles are being silently truncated at a character limit with no user-facing warning, a UX gap that risks silent data loss for longer titles.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Silent truncation at ~60 characters, no warning shown",
+      "Risk of unintentional content loss"
+    ]
+  },
+  "TKT-0123": {
+    "severity": "P3",
+    "true_issue": "Page builder drag-and-drop interactions have regressed in responsiveness, likely a rendering performance issue, though functionality remains intact.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Noticeable input lag (~0.5s), regression from previously instant feel",
+      "Functionality still works, this is a performance/UX complaint"
+    ]
+  },
+  "TKT-0124": {
+    "severity": "P3",
+    "true_issue": "Automatic sitemap generation/regeneration has stalled, leaving recently published pages absent for weeks, with a plausible real SEO impact.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Sitemap missing pages published weeks ago",
+      "Customer has a reasonable SEO-impact concern"
+    ]
+  },
+  "TKT-0125": {
+    "severity": "P4",
+    "true_issue": "The toolbar misalignment is a minor CSS layout bug in the editor itself, not caused by a third-party browser extension \u2014 worth a quick check across browsers/extensions to confirm before attributing it to the customer's extension.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Cosmetic toolbar misalignment, not a functional blocker",
+      "Customer's browser-extension theory is unconfirmed and shouldn't be assumed correct without a quick reproduction check"
+    ]
+  },
+  "TKT-0126": {
+    "severity": "P2",
+    "true_issue": "The AI assistant fabricated a specific, incorrect policy detail (refund window) that was sent to an end customer, a hallucination with real commercial and trust consequences that also raises scope questions about frequency.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Fabricated a specific false policy claim (90-day vs actual 30-day refund policy)",
+      "Already sent to a real customer, creating an honor-or-disappoint situation",
+      "Customer wants to know how frequently this type of hallucination occurs"
+    ]
+  },
+  "TKT-0127": {
+    "severity": "P2",
+    "true_issue": "The AI assistant feature is completely non-functional (timing out) for this tenant since the morning, which is a real outage with direct SLA impact given the customer's staffing model depends on it.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Consistent timeout for the entire team since ~8am",
+      "Not intermittent, appears to be a full outage for this tenant",
+      "Direct SLA impact due to staffing built around the tool"
+    ]
+  },
+  "TKT-0128": {
+    "severity": "P3",
+    "true_issue": "Some response variability is inherent to how the underlying model generates text and isn't necessarily a bug \u2014 but the actual concern worth checking is whether the variability includes factually inconsistent (not just differently worded) answers, which would matter more than the customer's framing suggests.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Customer perceives any variation as a malfunction",
+      "Need to distinguish stylistic variation from factual inconsistency across the three answers",
+      "Underlying question: is any of the variation actually incorrect, not just differently phrased"
+    ]
+  },
+  "TKT-0129": {
+    "severity": "P3",
+    "true_issue": "A responsive layout bug is clipping the AI suggestion panel on smaller screens; the tone-configuration question is a separate, non-urgent product question about customization options.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Layout clipping specific to smaller (13-inch) screens",
+      "Tone customization is a distinct question, not a bug"
+    ]
+  },
+  "TKT-0130": {
+    "severity": "P2",
+    "true_issue": "The AI assistant is hallucinating specific, non-existent product features/UI paths in its drafted responses, a factual grounding failure \u2014 caught pre-send this time, but represents a real risk to response quality and customer trust.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Fabricated specific nonexistent feature ('Bulk Export') and its supposed UI location",
+      "Caught before sending this time, but indicates a broader hallucination risk"
+    ]
+  },
+  "TKT-0131": {
+    "severity": "P3",
+    "true_issue": "AI assistant response latency has regressed significantly (from a couple seconds to 15-20s), likely a backend performance or capacity issue, meaningfully impacting throughput for a high-volume support team.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Latency regression from ~2s to 15-20s",
+      "Still functional, not a hard failure",
+      "Meaningful throughput impact given high ticket volume"
+    ]
+  },
+  "TKT-0132": {
+    "severity": "P4",
+    "true_issue": "This is a question about granular feature configurability (category-level AI opt-out), not a defect.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Question about category-level configuration options for the AI assistant"
+    ]
+  },
+  "TKT-0133": {
+    "severity": "P2",
+    "true_issue": "The AI's ticket summarization is failing to surface the most consequential issue in multi-topic customer messages, defaulting to whatever appears first or most prominently rather than triaging by importance \u2014 a real risk of agents missing critical issues.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Summary omitted the higher-priority billing dispute",
+      "Nearly caused agent to respond to the wrong issue",
+      "Customer frames this as a pattern risk worth investigating, not an isolated glitch"
+    ]
+  },
+  "TKT-0134": {
+    "severity": "P2",
+    "true_issue": "AI-generated suggestions have become generic and non-contextual, indicating the assistant isn't properly ingesting per-ticket context anymore \u2014 a genuine regression, not an expected side effect of the admin's custom-instructions tweak.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Regression from last week's working behavior",
+      "Recent custom-instructions change is a plausible but unconfirmed factor \u2014 needs verification, not assumed to be 'working as configured'",
+      "Suggestions are near-identical regardless of ticket content, suggesting a context-ingestion failure"
+    ]
+  },
+  "TKT-0135": {
+    "severity": "P3",
+    "true_issue": "The AI assistant's citation link generation is producing broken URLs roughly half the time, likely a stale reference or URL-templating bug rather than the articles not existing.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "~50% of citation links return 404",
+      "Underlying articles likely exist, this is a link generation issue"
+    ]
+  },
+  "TKT-0136": {
+    "severity": "P1",
+    "true_issue": "The AI assistant appears to have surfaced data from an unrelated customer's ticket into a different context, a potential cross-customer data leakage issue that needs urgent investigation regardless of whether it's confirmed as a real breach yet.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Reported cross-ticket data leakage from an unrelated customer's ticket",
+      "Not yet independently confirmed, but the privacy implication is serious enough to treat as urgent",
+      "Needs scope investigation: isolated incident vs systemic context-bleed bug"
+    ]
+  },
+  "TKT-0137": {
+    "severity": "P3",
+    "true_issue": "The AI assistant's greeting personalization is defaulting to company name instead of the available first-name field, a template/field-mapping bug requiring manual correction each time.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "First name is available in ticket metadata but not being used",
+      "Consistent pattern, not occasional"
+    ]
+  },
+  "TKT-0138": {
+    "severity": "P2",
+    "true_issue": "The AI's routing/severity calibration appears inverted for at least these two cases \u2014 over-escalating routine issues while under-escalating a genuinely complex one \u2014 suggesting a systematic miscalibration rather than isolated misses.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Routine password reset suggested for eng escalation (over-triage)",
+      "A genuinely complex billing case suggested for direct resolution (under-triage)",
+      "Pattern suggests systematic calibration issue, not one-off noise"
+    ]
+  },
+  "TKT-0139": {
+    "severity": "P4",
+    "true_issue": "Multi-language drafting support does not currently exist \u2014 a feature request rather than a defect.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Feature request for Spanish-language draft support"
+    ]
+  },
+  "TKT-0140": {
+    "severity": "P2",
+    "true_issue": "The AI assistant suggested a response that, if sent, would have degraded a customer's account security to work around an unrelated issue \u2014 a high-severity correctness failure with real security consequences, caught only because a human reviewed it.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Suggested security-weakening workaround for an unrelated login issue",
+      "Caught before sending by a human agent, not a false alarm",
+      "Security-relevant consequence if it had gone out uncaught"
+    ]
+  },
+  "TKT-0141": {
+    "severity": "P4",
+    "true_issue": "The AI's default tone/template over-applies apologetic language regardless of ticket sentiment, a stylistic calibration issue rather than a factual accuracy problem.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Tone issue, not a factual error",
+      "Applies even to non-complaint tickets"
+    ]
+  },
+  "TKT-0142": {
+    "severity": "P3",
+    "true_issue": "The AI suggestion UI panel has stopped rendering entirely, a frontend regression \u2014 not an admin-side feature toggle, which the customer plans to check but hasn't confirmed yet.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Panel completely absent from the UI, not just empty or erroring",
+      "Admin toggle theory unconfirmed by customer at time of reporting",
+      "Persisted after a refresh"
+    ]
+  },
+  "TKT-0143": {
+    "severity": "P1",
+    "true_issue": "A recurring pattern (third occurrence this month) of the AI fabricating incorrect SLA commitments that don't reflect actual per-tier contracts \u2014 at least one instance already reached a customer uncaught, indicating a systemic grounding gap rather than isolated errors.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Third occurrence this month, a recurring pattern not a one-off",
+      "At least one incorrect commitment already sent to a real customer uncaught",
+      "Customer explicitly wants a systemic fix, this is a program-level concern"
+    ]
+  },
+  "TKT-0144": {
+    "severity": "P4",
+    "true_issue": "No feedback mechanism exists for rating AI suggestion quality \u2014 a feature request, not a defect.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Feature request for a suggestion feedback/rating mechanism"
+    ]
+  },
+  "TKT-0145": {
+    "severity": "P2",
+    "true_issue": "Custom instruction/prompt configuration is no longer being consistently applied \u2014 a genuine regression from previously working behavior, not a matter of the customer's instruction wording needing to be 'more forceful'.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Previously worked correctly a few weeks ago with the same wording",
+      "Customer's 'reword it' theory doesn't explain why previously-working instructions stopped applying",
+      "Now inconsistently applied even to clearly relevant tickets"
+    ]
+  },
+  "TKT-0146": {
+    "severity": "P3",
+    "true_issue": "Possible reference to deprecated functionality as if still active \u2014 needs confirmation of the actual deprecation timeline before concluding it's a hallucination versus the customer's own uncertainty.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Customer is uncertain of the exact deprecation date themselves",
+      "Needs verification against actual feature deprecation records before treating as confirmed error"
+    ]
+  },
+  "TKT-0147": {
+    "severity": "P3",
+    "true_issue": "Markdown formatting in AI-generated drafts is not being rendered, a rendering bug in the draft display component itself \u2014 not the customer's browser update, which is an unconfirmed guess and an unlikely cause for a platform-wide draft rendering feature.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Raw markdown syntax visible instead of rendered formatting, started this week",
+      "Browser-update theory is unconfirmed and not the most likely explanation for a draft-rendering regression",
+      "Requires manual cleanup before sending, adds friction"
+    ]
+  },
+  "TKT-0148": {
+    "severity": "P3",
+    "true_issue": "The AI asserted an incorrect resolution status for a known, still-open internal issue, a factual accuracy failure with reputational risk \u2014 caught pre-send but represents a real gap in the assistant's access to current issue status.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Falsely claimed a known open bug was resolved",
+      "Caught before sending by the agent",
+      "Risk: assistant may not have accurate access to current known-issue status"
+    ]
+  },
+  "TKT-0149": {
+    "severity": "P3",
+    "true_issue": "Positive feedback overall, but the AI occasionally suggests premature resolution when a customer has an unanswered follow-up question buried in the thread \u2014 a real but lower-urgency accuracy gap worth tracking.",
+    "correct_routing": "request-info",
+    "key_facts_needed": [
+      "Overall satisfaction, not a complaint",
+      "Specific gap: premature 'resolve' suggestions when unanswered follow-ups exist in thread"
+    ]
+  },
+  "TKT-0150": {
+    "severity": "P1",
+    "true_issue": "The AI assistant has gone fully offline for this tenant mid-shift, an acute outage with immediate operational impact on a live, high-volume support floor.",
+    "correct_routing": "escalate-eng",
+    "key_facts_needed": [
+      "Sudden onset, was working 10 minutes prior",
+      "Affects entire floor, immediate errors on every request",
+      "Mid-shift with active queue backlog risk"
+    ]
+  }
+}
