@@ -3,8 +3,8 @@
 Eval harness for grading LLM performance on enterprise support ticket triage,
 severity classification, and first-response drafting.
 
-**Status:** M1 in progress (dataset). Runner, graders, and the full writeup
-land in later milestones — see the project scope doc for the plan.
+**Status:** M1 (dataset) and M2 (runner) done. Grading and the scorecard land
+in M3 — see `SCOPE_M2.md` for the runner's scope.
 
 ## Setup
 
@@ -36,3 +36,23 @@ before writing it out.
 - `data/gold_labels.json` — ground truth, keyed by ticket id.
 
 See `src/schema.py` for the full schema and field semantics.
+
+## Running the eval
+
+```bash
+# Smoke-test plumbing (no network calls, no API key needed):
+python src/run.py --dry-run --limit 5
+
+# Real run:
+export ANTHROPIC_API_KEY=sk-...
+python src/run.py --model claude-opus-4-8 --prompt-version v1
+
+# Resume an interrupted or partially-failed run — same --run-id, already
+# completed tickets are skipped, only pending/failed ones are retried:
+python src/run.py --run-id <run-id-from-above>
+```
+
+Each run writes `results/<run_id>.jsonl` (one JSON record per ticket: raw
+model output, latency, token counts, errors) plus a `results/<run_id>.meta.json`
+sidecar. Prompts are versioned in `src/prompts.py`. See `SCOPE_M2.md` for the
+full design (resumability, concurrency, retry behavior).
