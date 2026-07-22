@@ -42,7 +42,7 @@ from schema import TicketDataset  # noqa: E402
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_DATASET = REPO_ROOT / "data" / "tickets.json"
 DEFAULT_OUT_DIR = REPO_ROOT / "results"
-DEFAULT_MODEL = "claude-opus-4-8"
+DEFAULT_MODEL = "claude-haiku-4-5"
 MAX_CONCURRENCY = 20
 
 
