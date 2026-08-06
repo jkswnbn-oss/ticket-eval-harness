@@ -3,8 +3,8 @@
 Eval harness for grading LLM performance on enterprise support ticket triage,
 severity classification, and first-response drafting.
 
-**Status:** M1 (dataset) and M2 (runner) done. Grading and the scorecard land
-in M3 — see `SCOPE_M2.md` for the runner's scope.
+**Status:** M1 (dataset), M2 (runner), and M3 (graders + scorecard) done —
+see `SCOPE_M2.md` and `SCOPE_M3.md`.
 
 ## Setup
 
@@ -56,3 +56,43 @@ Each run writes `results/<run_id>.jsonl` (one JSON record per ticket: raw
 model output, latency, token counts, errors) plus a `results/<run_id>.meta.json`
 sidecar. Prompts are versioned in `src/prompts.py`. See `SCOPE_M2.md` for the
 full design (resumability, concurrency, retry behavior).
+
+## Grading a run
+
+Grading is a separate step from generation — it reads an existing run's
+JSONL, never calls the model under test:
+
+```bash
+# Smoke-test plumbing (stub judge scores, no network calls):
+python src/grade.py --run-id <run-id> --dry-run --limit 5
+
+# Real grading (needs ANTHROPIC_API_KEY for the LLM-judge graders):
+export ANTHROPIC_API_KEY=sk-...
+python src/grade.py --run-id <run-id>
+```
+
+Six deterministic graders (`output_parses`, `has_required_fields`,
+`valid_severity`, `valid_routing`, `severity_exact_match`,
+`routing_exact_match`) plus two LLM-as-judge graders (`response_quality`,
+`triage_reasoning`, judged via the Anthropic API against
+`data/gold_labels.json`) run over every ticket. Output is
+`results/<run_id>.grades.jsonl` — one row per `(ticket_id, grader_name)`,
+each with a `score` (0.0-1.0), `passed` bool, and a required `reason`
+string. Resumable the same way `run.py` is. See `src/graders.py` and
+`src/judge_prompts.py` (versioned the same way `src/prompts.py` versions
+task prompts).
+
+## Scorecard
+
+```bash
+# One run:
+python src/scorecard.py <run-id>
+
+# Compare prompt versions side by side (grade each run first):
+python src/scorecard.py <run-id-v1> <run-id-v2>
+```
+
+Prints a per-grader mean-score/pass-rate table and a breakdown-by-prompt-
+version table to the terminal, and writes the same as a markdown summary
+file (`results/scorecard__<run-ids>.md`). See `SCOPE_M3.md` for the full
+design, including the grade-record JSONL schema.
