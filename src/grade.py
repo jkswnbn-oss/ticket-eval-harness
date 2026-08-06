@@ -40,6 +40,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from graders import (  # noqa: E402
     DETERMINISTIC_GRADER_VERSION,
     DETERMINISTIC_GRADERS,
+    JUDGE_PASS_THRESHOLD,
     LLM_JUDGE_GRADER_VERSIONS,
     LLM_JUDGE_GRADERS,
     GraderResult,
@@ -173,6 +174,7 @@ def build_grade_record(
     grader_type: str,
     grader_version: str,
     judge_model: str | None,
+    judge_pass_threshold: float | None,
     result: GraderResult | None,
     error: dict[str, str] | None,
 ) -> dict[str, Any]:
@@ -185,6 +187,7 @@ def build_grade_record(
         "grader_type": grader_type,
         "grader_version": grader_version,
         "judge_model": judge_model,
+        "judge_pass_threshold": judge_pass_threshold,
         "score": result.score if result else None,
         "passed": result.passed if result else None,
         "reason": result.reason if result else None,
@@ -237,6 +240,7 @@ async def grade_ticket(
                 grader_type="deterministic",
                 grader_version=DETERMINISTIC_GRADER_VERSION,
                 judge_model=None,
+                judge_pass_threshold=None,
                 result=result,
                 error=error,
             )
@@ -271,6 +275,7 @@ async def grade_ticket(
                 grader_type="llm_judge",
                 grader_version=judge_version,
                 judge_model=cfg.judge_model,
+                judge_pass_threshold=JUDGE_PASS_THRESHOLD,
                 result=result,
                 error=error,
             )
@@ -326,6 +331,7 @@ async def grade(cfg: GradeConfig) -> None:
                 "judge_model": cfg.judge_model,
                 "deterministic_grader_version": DETERMINISTIC_GRADER_VERSION,
                 "llm_judge_grader_versions": LLM_JUDGE_GRADER_VERSIONS,
+                "judge_pass_threshold": JUDGE_PASS_THRESHOLD,
                 "limit": cfg.limit,
                 "concurrency": cfg.concurrency,
                 "dry_run": cfg.dry_run,

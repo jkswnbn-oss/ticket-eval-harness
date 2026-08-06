@@ -90,6 +90,11 @@ Grade record schema (confirmed):
                                             // (e.g. "v1") for judge graders
   "judge_model": null,        // model used for the judge call; null for
                                // deterministic graders
+  "judge_pass_threshold": null,  // the score cutoff `passed` was computed
+                                  // against (currently 0.6, i.e. 3/5); null
+                                  // for deterministic graders, whose pass
+                                  // criterion is exact (score == 1.0), not
+                                  // a numeric cutoff
   "score": 1.0,                // normalized 0.0-1.0
   "passed": true,
   "reason": "severity P1 matches gold P1",
@@ -111,6 +116,11 @@ Why this shape:
   `(ticket_id, grader_name)` pairs that already have an `error: null` row in
   the target `.grades.jsonl`, so a killed judge-grading run can be re-invoked
   safely without re-spending API budget on graders that already succeeded.
+- `judge_pass_threshold` is denormalized onto every row for the same reason
+  as `prompt_version`: a `passed` bool is meaningless without the cutoff that
+  produced it, and `.grades.meta.json` (which also records it) doesn't travel
+  when `.grades.jsonl` files from different grading runs get concatenated or
+  read independently.
 
 Flags: `--run-id` (required — which run to grade), `--limit` (grade only the
 first N tickets), `--dry-run` (stub judge calls, same spirit as the runner's
